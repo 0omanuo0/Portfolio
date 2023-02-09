@@ -13,7 +13,8 @@ app.config['SECRET_KEY'] = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'manu365manu@gmail.com'
-
+with open('secrets/secrets.txt') as f:
+    app.config['MAIL_PASSWORD'] = f.readlines()[0]
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
@@ -73,7 +74,7 @@ def submit():
     return redirect("/#")
 
 if __name__ == '__main__':
-    debug = False
+    debug = True
     subprocessNPX(debug=debug)
     if not debug:
         context = ('fullchain.pem', 'privkey.pem')#certificate and key files host='manu365.dev'
