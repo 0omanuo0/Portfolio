@@ -1,0 +1,9 @@
+{
+  "name": "portfolio",
+  "scripts": {
+    "watch-css" : "npx tailwindcss -i ./static/assets/css/src/input.css -o ./static/assets/css/dist/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+        media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/dist/output.css') }}">
+    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/main.scss') }}"> -->
+    <title>Manu - {% block title %}{% endblock %} | Portfolio</title>
+
+    <script>
+        function getScreenWidth() {
+            return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        }
+        if(window.location.pathname === "/" && getScreenWidth() < 768){
+            window.location.pathname = "/m";
+        }
+        else if(window.location.pathname == "/m" && getScreenWidth() >= 768){
+            window.location.replace("/");
+        }
+        if(window.location.pathname === "/aboutme" && getScreenWidth() < 768){
+            window.location.pathname = "/m/aboutme";
+        }
+        else if(window.location.pathname == "/m/aboutme" && getScreenWidth() >= 768){
+            window.location.replace("/aboutme");
+        }
+    </script>
+
+</head>
+
+
+
+<body class="dark:bg-black bg-[#f3f3f3]">
+    
+    {% include 'includes/nav.html' %}
+
+    {% include 'includes/darkmode.html' %}
+
+
+    {% block content %}{% endblock content %}
+    
+
+    {% include 'includes/footer.html' %}
+
+
+</body>
+
+</html>
+<script src="{{ url_for('static', filename='assets/js/dark_mode.js') }}"></script>

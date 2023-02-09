@@ -1,0 +1,31 @@
+
+<footer class="flex h-[10vh] dark:bg-neutral-700 bg-gray-300 items-center px-10 lg:px-20 py-6 w-full absolute ">
+    <p class=" text-xs tracking-widest dark:text-gray-200 text-gray-600">Todos los derechos reservados a seuso®</p>
+    <nav class="relative md:flex items-center ml-auto pr-4 lg:pr-20" style="font-family: Montserrat;">
+        <ul class="flex space-x-4 lg:space-x-8 xl:space-x-14 text-xs font-semibold">
+            <li>
+                <button class="hidden md:block minimal-button-a ">INSTAGRAM</button>
+                <button class="block md:hidden minimal-button-a ">
+                    <img src="{{ url_for('static', filename='images/insta.png') }}" width="30"/>
+                </button>
+            </li>
+            <li>
+                <button class="hidden md:block minimal-button">TWITTER</button>
+                <button class="block md:hidden minimal-button-a ">
+                    <img src="{{ url_for('static', filename='images/twitter.png') }}" width="30"/>
+                </button>
+            </li>
+            <li>
+                <button class="hidden md:block minimal-button">LINKEDIN</button>
+                <button class="block md:hidden minimal-button-a ">
+                    <img src="{{ url_for('static', filename='images/linkedin.png') }}" width="30"/>
+                </button>
+            </li>
+            <li>
+                <button class="hidden md:block minimal-button"><a href="https://services.manu365.dev">WEB APP SERVICES</a>></button>
+            </li>
+        </ul>
+    </nav>
+</footer>
+
+

@@ -1,0 +1,10 @@
+Flask
+gunicorn
+Werkzeug
+Jinja2
+itsdangerous
+MarkupSafe
+termcolor
+flask_mail
+pythonping==1.1.2
+flask-sitemapper
