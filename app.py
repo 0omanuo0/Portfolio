@@ -37,21 +37,17 @@ def index_m():
         return render_template("index-m.html", projects=json.load(f)["Projects"])
 
 @sm.include()
+@app.route("/m/aboutme")
 @app.route("/aboutme")
 def aboutme():
     return render_template("aboutme.html")
 
-@sm.include()
-@app.route("/m/aboutme")
-def aboutme_m():
-    return render_template("aboutme-m.html")
 
 @sm.include()
 @app.route("/projects")
 def projects():
     with open('content/projects/proj.json') as f:
         return render_template("projects.html", projects=json.load(f)["Projects"])
-
 
 @sm.include()
 @app.route("/home")

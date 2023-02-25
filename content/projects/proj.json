@@ -5,14 +5,35 @@
             "Description" : "Este portfolio, diseñado con flask y tailwind",
             "Content" : "Este es un projecto de prueba",
             "image" : "images/proj1.png",
-            "url" : ["https://github.com", "github"]
+            "url" : ["https://github.com/0omanuo0/Portfolio", "Ir a github"]
         },
         {
-            "Title" : "Proj2",
-            "Description" : "Descripcion de prueba",
+            "Title" : "mcIA",
+            "Description" : "Projecto de enseñar a una ia a jugar al minecraft",
             "Content" : "Este es un projecto de prueba",
             "image" : "images/proj2.png",
-            "url" : 0
+            "url" : ["https://github.com/0omanuo0/mcIA", "Ir a github"]
+        },
+        {
+            "Title" : "Led Control",
+            "Description" : "Sistema para controlar una tira led con un ESP32",
+            "Content" : "Este es un projecto de prueba",
+            "image" : "images/proj2.png",
+            "url" : ["https://github.com/0omanuo0/led-control", "Ir a github"]
+        },
+        {
+            "Title" : "Corrector CAD",
+            "Description" : "Trabajo en el departamento de CAD",
+            "Content" : "No es publico",
+            "image" : "images/proj2.png",
+            "url" : ["https://corrector-cad.umh.es", "Corrector UMH"]
+        },
+        {
+            "Title" : "Projecto globo",
+            "Description" : "Projecto del IEEE de un globo estratosferico",
+            "Content" : "No es publico",
+            "image" : "images/proj2.png",
+            "url" : ["https://github.com/0omanuo0/projecto-globo", "Corrector UMH"]
         }
     ]
 }
