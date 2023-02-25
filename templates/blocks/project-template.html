@@ -1,0 +1,18 @@
+{% block content %}
+    <section class="section-main pt-20">
+        <div class=" px-40 py-6">
+            <h1 class=" text-center text-4xl">{{ proj.Title }}</h1>
+            <div class="px-3">
+                <h5 class="text-xl">{{ proj.Description }}</h5>
+                {% if proj.url != 0 %}
+                    <div class="py-10">
+                        <p class="">
+                            {{ proj.Content }}
+                        </p>
+                        <button><a href={{ proj.url[0] }}> {{ proj.url[1] }} </a></button>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}

@@ -3,7 +3,7 @@ const right = document.getElementById("right");
 
 pos = 1;
 function carr (){
-    for(let i = 1; i <= 6; i++){
+    for(let i = 1; i <= cards; i++){
         if(i == pos){
             document.getElementById(i.toString()).classList.add("w-3/4");
             document.getElementById(i.toString()).classList.add("lg:w-full");
@@ -24,7 +24,7 @@ function carr (){
     }
 }
 right.addEventListener("click", () => {
-    if(pos < 6){pos++;}
+    if(pos < cards){pos++;}
     carr();
 });
 left.addEventListener("click", () => {

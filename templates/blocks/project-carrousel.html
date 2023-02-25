@@ -1,0 +1,23 @@
+{% block content %}
+    {% if id1 == 0 %}
+        <div id={{ id1+1 }} class="w-3/4 carroussel h-[600px]">
+            <img class="h-[450px] transition-opacity-60 z-0 object-cover bg-cover w-full rounded-2xl"
+                src="{{ url_for('static', filename=proj.image) }}" alt="">
+
+            <div id={{ 'p'+(id1+1)|string }} class="z-0 items-center text-center space-y-4 py-8">
+                <h2 class=" h2-xl">{{ proj.Title }}</h2>
+                <p class=" dark:text-gray-300 text-gray-500">{{ proj.Description }}</p>
+            </div>
+        </div>
+    {% else %}
+        <div id={{ id1+1 }} class="w-0 carroussel h-[600px]">
+            <img class="h-[450px] transition-opacity-60 z-0 object-cover bg-cover w-full rounded-2xl"
+                src="{{ url_for('static', filename=proj.image) }}" alt="">
+
+            <div id={{ 'p'+(id1+1)|string }} class="hidden z-0 items-center text-center space-y-4 py-8">
+                <h2 class=" h2-xl">{{ proj.Title }}</h2>
+                <p class=" dark:text-gray-300 text-gray-500">{{ proj.Description }}</p>
+            </div>
+        </div>
+    {% endif %}
+{% endblock content %}

@@ -16,55 +16,11 @@
             <p class="dark:text-gray-300 text-gray-500 text-sm text-center">Desliza para ver mas!</p>
             <div class="flex items-center">
                 <div id="panel_carrousel" class="flex m-auto w-full pt-5 h-auto place-content-center">
-                    <div id="1" class="w-3/4 carroussel h-[600px]">
-                        <img class="h-[450px] transition-opacity-60 z-0 object-cover bg-cover w-full rounded-2xl"
-                            src="{{ url_for('static', filename='images/proj2.png') }}" alt="">
-
-                        <div id="p1" class="z-0 items-center text-center space-y-4 py-8">
-                            <h2 class=" h2-xl">Project 1</h2>
-                            <p class=" dark:text-gray-300 text-gray-500">IA minecraft</p>
-                        </div>
-                    </div>
-                    <div id="2" class=" w-0 carroussel h-[600px]">
-                        <img class="h-[450px] transition-opacity-60 z-0 object-cover bg-cover w-full rounded-2xl"
-                            src="{{ url_for('static', filename='images/proj3.png') }}" alt="">
-                        <div id="p2" class="hidden z-0 items-center text-center space-y-4 py-8">
-                            <h2 class="h2-xl">Project 2</h2>
-                            <p class=" dark:text-gray-300 text-gray-500">C# autocad algorithm</p>
-                        </div>
-                    </div>
-                    <div id="3" class=" w-0 carroussel h-[600px]">
-                        <img class="h-[450px] transition-opacity-60 z-0 object-cover bg-cover w-full rounded-2xl"
-                            src="{{ url_for('static', filename='images/proj2.png') }}" alt="">
-                        <div id="p3" class="hidden z-0 items-center text-center space-y-4 py-8">
-                            <h2 class=" h2-xl">Project 3</h2>
-                            <p class=" dark:text-gray-300 text-gray-500">Domotics system, idonno</p>
-                        </div>
-                    </div>
-                    <div id="4" class=" w-0 carroussel h-[600px]">
-                        <img class="h-[450px] transition-opacity-60 z-0 object-cover bg-cover w-full rounded-2xl"
-                            src="{{ url_for('static', filename='images/proj2.png') }}" alt="">
-                        <div id="p4" class="hidden z-0 items-center text-center space-y-4 py-8">
-                            <h2 class=" h2-xl">Project 4</h2>
-                            <p class=" dark:text-gray-300 text-gray-500">Stratospheric ballon :D</p>
-                        </div>
-                    </div>
-                    <div id="5" class=" w-0 carroussel h-[600px]">
-                        <img class="h-[450px] transition-opacity-60 z-0 object-cover bg-cover w-full rounded-2xl"
-                            src="{{ url_for('static', filename='images/proj3.png') }}" alt="">
-                        <div id="p5" class="hidden z-0 items-center text-center space-y-4 py-8">
-                            <h2 class="h2-xl">Project 2</h2>
-                            <p class=" dark:text-gray-300 text-gray-500">C# autocad algorithm</p>
-                        </div>
-                    </div>
-                    <div id="6" class=" w-0 carroussel h-[600px]">
-                        <img class="h-[450px] transition-opacity-60 z-0 object-cover bg-cover w-full rounded-2xl"
-                            src="{{ url_for('static', filename='images/proj3.png') }}" alt="">
-                        <div id="p6" class="hidden z-0 items-center text-center space-y-4 py-8">
-                            <h2 class="h2-xl">Project 200</h2>
-                            <p class=" dark:text-gray-300 text-gray-500">C# autocad algorithm</p>
-                        </div>
-                    </div>
+                    {% for card in range(projects|length) %}
+                        {% with proj=projects[card], id1=card %}
+                            {% include "blocks/project-carrousel-m.html" %}
+                        {% endwith %}
+                    {% endfor %}
                 </div>
             </div>
         </section>
@@ -114,7 +70,8 @@
         </section>
     </main>
 
+    <script type="text/javascript">
+        var cards = {{ (projects|length)|safe }};
+    </script>
     <script src="{{ url_for('static', filename='assets/js/carr-m.js') }}"></script>
-
-    
 {% endblock content %}

@@ -6,7 +6,7 @@ var pos = 1;
 var touched = false;
 
 function carr (){
-    for(let i = 1; i <= 6; i++){
+    for(let i = 1; i <= cards; i++){
         if(i == pos){
             document.getElementById(i.toString()).classList.add("w-3/4");
             document.getElementById(i.toString()).classList.add("lg:w-full");
@@ -35,7 +35,7 @@ document.addEventListener("touchstart", function(event) {
       let currentY = event.changedTouches[0].clientY;
       if (Math.abs(initialX - currentX) > Math.abs(initialY - currentY) && !touched) {
         if(initialX - currentX < 0 && pos > 1){pos--;}
-        else if(initialX - currentX > 0 & pos < 6){pos++;}
+        else if(initialX - currentX > 0 & pos < cards){pos++;}
         touched = true;
         carr();
       }

@@ -2,8 +2,7 @@ from flask import Flask, render_template, request, redirect
 from flask_mail import Mail, Message
 from flask_sitemapper import Sitemapper
 import threading as th
-import time
-import datetime
+import json
 import subprocess
 import termcolor as tc
 
@@ -29,11 +28,13 @@ def subprocessNPX(debug=False):
 @sm.include()
 @app.route("/")
 def index():
-    return render_template("index.html")
+    with open('content/projects/proj.json') as f:
+        return render_template("index.html", projects=json.load(f)["Projects"])
 
 @app.route("/m")
 def index_m():
-    return render_template("index-m.html")
+    with open('content/projects/proj.json') as f:
+        return render_template("index-m.html", projects=json.load(f)["Projects"])
 
 @sm.include()
 @app.route("/aboutme")
@@ -44,6 +45,12 @@ def aboutme():
 @app.route("/m/aboutme")
 def aboutme_m():
     return render_template("aboutme-m.html")
+
+@sm.include()
+@app.route("/projects")
+def projects():
+    with open('content/projects/proj.json') as f:
+        return render_template("projects.html", projects=json.load(f)["Projects"])
 
 
 @sm.include()

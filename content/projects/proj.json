@@ -1,0 +1,18 @@
+{
+    "Projects" : [
+        {
+            "Title" : "Portfolio",
+            "Description" : "Este portfolio, diseñado con flask y tailwind",
+            "Content" : "Este es un projecto de prueba",
+            "image" : "images/proj1.png",
+            "url" : ["https://github.com", "github"]
+        },
+        {
+            "Title" : "Proj2",
+            "Description" : "Descripcion de prueba",
+            "Content" : "Este es un projecto de prueba",
+            "image" : "images/proj2.png",
+            "url" : 0
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{% extends "layouts/base.html" %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<main style="font-family: Montserrat" class="space-y-8 pb-40">
+    {% for x in projects %}
+            {% with proj=x %}
+                {% include "blocks/project-template.html" %}
+            {% endwith %}
+    {% endfor %}
+</main>
+
+<script src="{{ url_for('static', filename='assets/js/carr.js') }}"></script>
+{% endblock content %}
