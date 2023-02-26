@@ -31,9 +31,9 @@
         {
             "Title" : "Projecto globo",
             "Description" : "Projecto del IEEE de un globo estratosferico",
-            "Content" : "No es publico",
+            "Content" : "Este es un projecto de prueba",
             "image" : "images/proj2.png",
-            "url" : ["https://github.com/0omanuo0/projecto-globo", "Corrector UMH"]
+            "url" : ["https://github.com/0omanuo0/projecto-globo", "Ir a github"]
         }
     ]
 }

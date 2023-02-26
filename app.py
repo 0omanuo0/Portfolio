@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 from flask_mail import Mail, Message
 from flask_sitemapper import Sitemapper
 import threading as th
@@ -20,28 +20,17 @@ app.config['MAIL_USE_SSL'] = True
 sm = Sitemapper(app)
 mail = Mail(app)
 
-def subprocessNPX(debug=False):
-    tailwindcss_command = "npx tailwindcss -i ./static/assets/css/src/input.css -o ./static/assets/css/dist/output.css --watch"
-    tailwindcss = subprocess.Popen(tailwindcss_command, stdin=subprocess.PIPE, shell=True) if debug else None
-
-
 @sm.include()
 @app.route("/")
 def index():
     with open('content/projects/proj.json') as f:
         return render_template("index.html", projects=json.load(f)["Projects"])
 
-@app.route("/m")
-def index_m():
-    with open('content/projects/proj.json') as f:
-        return render_template("index-m.html", projects=json.load(f)["Projects"])
-
 @sm.include()
 @app.route("/m/aboutme")
 @app.route("/aboutme")
 def aboutme():
     return render_template("aboutme.html")
-
 
 @sm.include()
 @app.route("/projects")
@@ -54,7 +43,6 @@ def projects():
 def home():
     redirect("/")
 
-
 @app.route("/sitemap.xml")
 def r_sitemap():
     return sm.generate()
@@ -63,18 +51,23 @@ def r_sitemap():
 def page_not_found(e):
     return render_template('page-404.html'), 404
 
-
 @app.route('/submit', methods=['POST'])
 def submit():
     name, email, message = request.form['name'], request.form['email'], request.form['message']
+    if (not name or not email or not message):
+        print("error")
+        return redirect("/")
     msg = Message('From {}@portfolio.manu365.dev'.format(name), 
                     sender=email,
                     recipients=['manu365manu@gmail.com'])
     msg.body = message
     mail.send(msg)
-    # Do something with the email, such as sending an email
     print("Email sent", email)
     return redirect("/#")
+
+def subprocessNPX(debug=False):
+    tailwindcss_command = "npx tailwindcss -i ./static/assets/css/src/input.css -o ./static/assets/css/dist/output.css --watch"
+    tailwindcss = subprocess.Popen(tailwindcss_command, stdin=subprocess.PIPE, shell=True) if debug else None
 
 if __name__ == '__main__':
     debug = True
