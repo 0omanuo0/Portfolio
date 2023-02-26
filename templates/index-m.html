@@ -2,34 +2,30 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-    <main style="font-family: Montserrat" class="space-y-8 pb-40">
-        <section class="flex section-main pt-20 h-screen grid-cols-2">
-            <div class=" w-full h-auto text-right mr-10">
-                <h1 class="dark:text-white leading-10 py-5 text-5xl">Manuel Serrano</h1>
-                <div class=" dark:text-gray-300 text-gray-500">Probably an engineer and a developer :D</div>
-            </div>
-            <div class="h-auto">
-                <img class=" rounded-2xl xl:max-w-[133%] md:max-w-[100%]" width="1080"
-                    src="{{ url_for('static', filename='images/main.jpg') }}" alt="">
+
+    <main style="font-family: Montserrat" class="block md:none space-y-8 pb-40">
+        <section class="section-main pt-20 h-screen grid items-center" style="background-image: url({{ url_for('static', filename='images/main.jpg') }});">
+            <div class="text-center m-auto bg-slate-50 opacity-75">
+                <h1 class="dark:text-white leading-10 py-5 text-5xl text-center">Manuel Serrano</h1>
+                <div class=" dark:text-gray-300 text-gray-500 mb-6">Probably an engineer and a developer :D</div>
             </div>
         </section>
 
-        <section class="section-main w-4/5">
+        <section class="section-main w-full">
             <h1 class="dark:text-white text-center leading-10 py-5 text-5xl ">MIS PROJECTOS </h1>
+            <p class="dark:text-gray-300 text-gray-500 text-sm text-center">Desliza para ver mas!</p>
             <div class="flex items-center">
-                <button id="left" class="sm-button mr-10 mt-[-100px]"><</button>
-                <div id="panel_carrousel" class="flex m-auto w-3/4 pt-20 h-auto place-content-center">
+                <div id="panel_carrousel" class="flex m-auto w-full pt-5 h-auto place-content-center">
                     {% for card in range(projects|length) %}
                         {% with proj=projects[card], id1=card %}
-                            {% include "blocks/project-carrousel.html" %}
+                            {% include "blocks/project-carrousel-m.html" %}
                         {% endwith %}
                     {% endfor %}
                 </div>
-                <button id="right" class="sm-button ml-10 mt-[-100px]">></button>
             </div>
         </section>
 
-        <section class="section-main">
+        <section class="section-main w-5/6">
             <h1 class="dark:text-white leading-10 py-5 text-4xl">Mi experiencia </h1>
             <div class="dark:text-gray-300 text-gray-500">
                 Aunque no sea mucha, aquí iré poniendo mi experiencia laboral.
@@ -52,13 +48,13 @@
             <form class="  p-10" action="{{ url_for('submit') }}" method="post">
                 <h1 class="dark:text-white leading-10 py-5 text-3xl">Quieres contactarme? </h1>
                 <p class="dark:text-gray-300 text-gray-500">Mándame un correo! ♥</p>
-                <div class=" flex grid-cols2 space-x-8 pt-12">
+                <div class=" pt-12">
                     <div>
                         <h2 class="h2-wide">NOMBRE</h2>
                         <input type="text" class="transition-gray input-text-1 w-32" maxlength="256" id="name" name="name"
                             data-name="Name" placeholder="Nombre" id="Name">
                     </div>
-                    <div>
+                    <div class="mt-10">
                         <h2 class="h2-wide">EMAIL</h2>
                         <input type="text" class="transition-gray input-text-1 md:w-64 xl:w-48" maxlength="256" id="email"
                             name="email" data-name="Email" placeholder="Email">
@@ -77,5 +73,5 @@
     <script type="text/javascript">
         var cards = {{ (projects|length)|safe }};
     </script>
-    <script src="{{ url_for('static', filename='assets/js/carr.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/carr-m.js') }}"></script>
 {% endblock content %}
