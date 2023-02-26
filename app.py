@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect, send_file
 from flask_mail import Mail, Message
 from flask_sitemapper import Sitemapper
 import threading as th
@@ -23,11 +23,10 @@ mail = Mail(app)
 @sm.include()
 @app.route("/")
 def index():
-    with open('content/projects/proj.json') as f:
+    with open('static/content/proj.json') as f:
         return render_template("index.html", projects=json.load(f)["Projects"])
 
 @sm.include()
-@app.route("/m/aboutme")
 @app.route("/aboutme")
 def aboutme():
     return render_template("aboutme.html")
@@ -35,13 +34,18 @@ def aboutme():
 @sm.include()
 @app.route("/projects")
 def projects():
-    with open('content/projects/proj.json') as f:
+    with open('static/content/proj.json') as f:
         return render_template("projects.html", projects=json.load(f)["Projects"])
 
 @sm.include()
 @app.route("/home")
 def home():
     redirect("/")
+
+@sm.include()
+@app.route("/curriculum")
+def curriculum():
+    return send_file("content/curriculum.pdf")
 
 @app.route("/sitemap.xml")
 def r_sitemap():
@@ -70,10 +74,10 @@ def subprocessNPX(debug=False):
     tailwindcss = subprocess.Popen(tailwindcss_command, stdin=subprocess.PIPE, shell=True) if debug else None
 
 if __name__ == '__main__':
-    debug = True
+    debug = False
     subprocessNPX(debug=debug)
     if not debug:
-        context = ('fullchain.pem', 'privkey.pem')#certificate and key files host='manu365.dev'
+        context = ('secrets/fullchain.pem', 'secrets/privkey.pem')#certificate and key files host='manu365.dev'
         app.run(debug=False, ssl_context=context, port=4433 , host='manu365.dev')
     else:
         app.run(debug=True, port=12344 , host='0.0.0.0')

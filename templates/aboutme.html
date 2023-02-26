@@ -2,34 +2,33 @@
 {% block title %} About me {% endblock %} 
 
 {% block content %}
-    <main style="font-family: Montserrat" class="space-y-8 pb-40">
-        <section class=" md:flex hidden section-main pt-20 h-screen grid-cols-2 space-x-8">
-            <div class=" w-2/4 text-justify">
-                <p class="text-left text-gray-500">HELLO THERE!</p>
-                <h1 class=" text-right h2-4xl">Manuel Serrano</h1>
+    <main style="font-family: Montserrat" class="pb-40">
+        <div class=" w-full pt-40">
+            <p class=" text-center text-gray-500">HELLO THERE!</p>
+        </div>
+        <section class=" md:flex hidden -mt-32 section-main  h-screen grid-cols-2 space-x-8">
+            <div class=" w-2/4">
+                <h1 class=" text-center h2-4xl">Sobre mí</h1>
                 <p class=" text-gray-500 dark:text-gray-300">
-                    I'm a full stack developer working as freelancer in Elche, Spain / Soy un desarrollador en Elche, España
-                    I'm a full stack developer working as freelancer in Elche, Spain / Soy un desarrollador en Elche, España
-                    I'm a full stack developer working as freelancer in Elche, Spain / Soy un desarrollador en Elche, España
-                    I'm a full stack developer working as freelancer in Elche, Spain / Soy un desarrollador en Elche, España
-                    I'm a full stack developer working as freelancer in Elche, Spain / Soy un desarrollador en Elche, España
+                    Soy un estudiante de ingenieria electronica y automatica residente en Elche, España. Aunque en mi tiempo libre me dedico a apender sobre 
+                    programacion, concretamente en python, C#, c entre otros; actualmente estoy aprendiendo a programar web como este portfolio u otros projectos
+                    similares de forma freelancer. 
                 </p>
+                <button class="sm-button tracking-widest text-sm px-6 py-4 float-right m-10 text"><a href={{ "curriculum" }}>curriculum</a></button>
             </div>
             <div class="h-auto pr-4 w-auto">
                 <img class="h-[400px] rounded-2xl max-w-[133%] md:w-[100%] xl:w-[133%] object-cover bg-cover" src="{{ url_for('static', filename='images/main.jpg') }}" alt="">
             </div>
         </section>
-        <section class="md:hidden block pt-40 section-main">
+        <section class="md:hidden section-main">
             <div class="text-justify px-10">
-                <p class="text-left text-gray-500">HELLO THERE!</p>
                 <h1 class=" text-center h2-4xl">Manuel Serrano</h1>
                 <p class=" text-gray-500 dark:text-gray-300">
-                    I'm a full stack developer working as freelancer in Elche, Spain / Soy un desarrollador en Elche, España
-                    I'm a full stack developer working as freelancer in Elche, Spain / Soy un desarrollador en Elche, España
-                    I'm a full stack developer working as freelancer in Elche, Spain / Soy un desarrollador en Elche, España
-                    I'm a full stack developer working as freelancer in Elche, Spain / Soy un desarrollador en Elche, España
-                    I'm a full stack developer working as freelancer in Elche, Spain / Soy un desarrollador en Elche, España
+                    Soy un estudiante de ingenieria electronica y automatica residente en Elche, España. Aunque en mi tiempo libre me dedico a apender sobre 
+                    programacion, concretamente en python, C#, c entre otros; actualmente estoy aprendiendo a programar web como este portfolio u otros projectos
+                    similares de forma freelancer. 
                 </p>
+                <button class="sm-button tracking-widest text-sm px-6 py-4 mx-auto m-10 text"><a href={{ "curriculum" }}>curriculum</a></button>
             </div>
         </section>
         <section class="md:flex hidden section-main grid-2col-10">
@@ -54,7 +53,7 @@
                 </div>
             </div>
         </section>
-        <section class="md:hidden block section-main w-5/6">
+        <section class="md:hidden block section-main w-5/6 mt-20">
             <div class="text-justify">
                 <h1  class="h2-4xl text-center">Mi carrera</h1>
                 <p class=" text-gray-500 dark:text-gray-300">

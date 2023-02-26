@@ -3,21 +3,21 @@
         {
             "Title" : "Portfolio",
             "Description" : "Este portfolio, diseñado con flask y tailwind",
-            "Content" : "Este es un projecto de prueba",
+            "Content" : "Este es un texto de prueba",
             "image" : "images/proj1.png",
             "url" : ["https://github.com/0omanuo0/Portfolio", "Ir a github"]
         },
         {
             "Title" : "mcIA",
             "Description" : "Projecto de enseñar a una ia a jugar al minecraft",
-            "Content" : "Este es un projecto de prueba",
+            "Content" : "Este es un texto de prueba",
             "image" : "images/proj2.png",
             "url" : ["https://github.com/0omanuo0/mcIA", "Ir a github"]
         },
         {
             "Title" : "Led Control",
             "Description" : "Sistema para controlar una tira led con un ESP32",
-            "Content" : "Este es un projecto de prueba",
+            "Content" : "Este es un texto de prueba",
             "image" : "images/proj2.png",
             "url" : ["https://github.com/0omanuo0/led-control", "Ir a github"]
         },
@@ -31,7 +31,7 @@
         {
             "Title" : "Projecto globo",
             "Description" : "Projecto del IEEE de un globo estratosferico",
-            "Content" : "Este es un projecto de prueba",
+            "Content" : "Este es un texto de prueba",
             "image" : "images/proj2.png",
             "url" : ["https://github.com/0omanuo0/projecto-globo", "Ir a github"]
         }

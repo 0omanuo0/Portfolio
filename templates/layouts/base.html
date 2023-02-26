@@ -13,17 +13,6 @@
     <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/main.scss') }}"> -->
     <title>Manu - {% block title %}{% endblock %} | Portfolio</title>
 
-    <script>
-        function getScreenWidth() {
-            return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        }
-        if(window.location.pathname === "/" && getScreenWidth() < 768){
-            window.location.pathname = "/m";
-        }
-        else if(window.location.pathname == "/m" && getScreenWidth() >= 768){
-            window.location.replace("/");
-        }
-    </script>
 
 </head>
 
