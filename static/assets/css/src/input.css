@@ -18,7 +18,7 @@
     }
     @screen lg{
         .form-mail{
-            @apply w-2/4 items-center m-auto shadow-[0_0px_30px_-1px_rgba(0,0,0,0.1)] rounded-3xl bg-white;
+            @apply w-[41rem] items-center m-auto shadow-[0_0px_30px_-1px_rgba(0,0,0,0.1)] rounded-3xl bg-white;
             @apply dark:bg-neutral-800;
         }
     }
@@ -28,7 +28,7 @@
             @apply w-2/4 items-center m-auto;
         }
         .form-mail{
-            @apply w-1/3 items-center m-auto shadow-[0_0px_30px_-1px_rgba(0,0,0,0.1)] rounded-3xl bg-white;
+            @apply items-center m-auto shadow-[0_0px_30px_-1px_rgba(0,0,0,0.1)] rounded-3xl bg-white;
             @apply dark:bg-neutral-800;
         }
     }

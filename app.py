@@ -61,16 +61,16 @@ def submit():
     if (not name or not email or not message):
         print("error")
         return redirect("/")
-    msg = Message('From {}@portfolio.manu365.dev'.format(name), 
+    msg = Message('From {}'.format(email), 
                     sender=email,
                     recipients=['manu365manu@gmail.com'])
-    msg.body = message
+    msg.body = "From: {}\n".format(name) + message
     mail.send(msg)
     print("Email sent", email)
     return redirect("/#")
 
 def subprocessNPX(debug=False):
-    tailwindcss_command = "npx tailwindcss -i ./static/assets/css/src/input.css -o ./static/assets/css/dist/output.css --watch"
+    tailwindcss_command = "npx tailwindcss -i ./static/assets/cs s/src/input.css -o ./static/assets/css/dist/output.css --watch"
     tailwindcss = subprocess.Popen(tailwindcss_command, stdin=subprocess.PIPE, shell=True) if debug else None
 
 if __name__ == '__main__':
