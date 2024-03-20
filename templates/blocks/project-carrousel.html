@@ -1,6 +1,6 @@
 {% block content %}
     {% if id1 == 0 %}
-        <div id={{ id1+1 }} class="w-3/4 carroussel h-[600px]">
+        <div id={{ id1+1 }} class="w-3/4 carroussel h-[600px] duration-300 ">
             <img class="h-[450px] transition-opacity-60 z-0 object-cover bg-cover w-full rounded-2xl"
                 src="{{ url_for('static', filename=proj.image) }}" alt="">
 
@@ -10,7 +10,7 @@
             </div>
         </div>
     {% else %}
-        <div id={{ id1+1 }} class="w-0 carroussel h-[600px]">
+        <div id={{ id1+1 }} class="w-0 carroussel h-[600px] duration-300 ">
             <img class="h-[450px] transition-opacity-60 z-0 object-cover bg-cover w-full rounded-2xl"
                 src="{{ url_for('static', filename=proj.image) }}" alt="">
 

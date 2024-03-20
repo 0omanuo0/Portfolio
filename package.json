@@ -4,6 +4,6 @@
     "watch-css": "npx tailwindcss -i ./static/assets/css/src/input.css -o ./static/assets/css/dist/output.css --watch"
   },
   "devDependencies": {
-    "tailwindcss": "^3.2.6"
+    "tailwindcss": "^3.4.0"
   }
 }

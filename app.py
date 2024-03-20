@@ -5,9 +5,11 @@ import threading as th
 import json
 import subprocess
 import termcolor as tc
-
+import os
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b23a5d1616bf319bc298105da20fe'
+# generate a secret key with os.urandom(24) and store it in a file
+print("------ Generating secret key... ------")
+app.config['SECRET_KEY'] = os.urandom(24)
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
@@ -45,7 +47,7 @@ def home():
 @sm.include()
 @app.route("/curriculum")
 def curriculum():
-    return send_file("content/curriculum.pdf")
+    return send_file("content/curriculum2.pdf")
 
 @app.route("/sitemap.xml")
 def r_sitemap():
@@ -70,7 +72,7 @@ def submit():
     return redirect("/#")
 
 def subprocessNPX(debug=False):
-    tailwindcss_command = "npx tailwindcss -i ./static/assets/cs s/src/input.css -o ./static/assets/css/dist/output.css --watch"
+    tailwindcss_command = "npx tailwindcss -i ./static/assets/css/src/input.css -o ./static/assets/css/dist/output.css --watch"
     tailwindcss = subprocess.Popen(tailwindcss_command, stdin=subprocess.PIPE, shell=True) if debug else None
 
 if __name__ == '__main__':

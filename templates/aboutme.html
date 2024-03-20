@@ -1,81 +1,122 @@
 {% extends "layouts/base.html" %}
-{% block title %} About me {% endblock %} 
+{% block title %} About me {% endblock %}
 
 {% block content %}
-    <main style="font-family: Montserrat" class="pb-40">
-        <div class=" w-full pt-40">
-            <p class=" text-center text-gray-500">HELLO THERE!</p>
+<main style="font-family: Montserrat" class="pb-40">
+    <div class=" w-full pt-40">
+        <p class=" text-center ">HELLO THERE!</p>
+    </div>
+    <section class=" md:flex hidden -mt-32 section-main h-screen grid-cols-2 space-x-8">
+        <div class=" w-2/4 md:w-4/5 lg:w-2/4  dark:text-gray-300 leading-7">
+            <h1 class=" text-center h2-4xl">Sobre mí</h1>
+            <p class=" text-balance">
+                Soy un estudiante de ingeniería electrónica y automática en la Universidad Miguel Hernández de Elche,
+                con una profunda pasión por la programación y el desarrollo de tecnología. Combino mis estudios
+                académicos con proyectos personales y freelance, explorando desde el desarrollo web hasta la
+                inteligencia artificial y la automatización.
+            </p>
+            <button class="sm-button tracking-widest text-sm px-6 py-4 float-right m-10 text"><a href={{ "curriculum"
+                    }}>curriculum</a></button>
         </div>
-        <section class=" md:flex hidden -mt-32 section-main  h-screen grid-cols-2 space-x-8">
-            <div class=" w-2/4">
-                <h1 class=" text-center h2-4xl">Sobre mí</h1>
-                <p class=" text-gray-500 dark:text-gray-300 leading-7">
-                    Soy un estudiante de ingenieria electronica y automatica residente en Elche, España. Aunque en mi tiempo libre me dedico a apender sobre 
-                    programacion, concretamente en python, C#, c entre otros; actualmente estoy aprendiendo a programar web como este portfolio u otros projectos
-                    similares de forma freelancer. 
-                </p>
-                <button class="sm-button tracking-widest text-sm px-6 py-4 float-right m-10 text"><a href={{ "curriculum" }}>curriculum</a></button>
+        <div class="h-auto pr-4 w-auto">
+            <img class="h-[400px] rounded-2xl max-w-[133%] md:w-[100%] xl:w-[133%] object-cover bg-cover"
+                src="{{ url_for('static', filename='images/main.jpg') }}" alt="">
+        </div>
+    </section>
+    <section class="md:hidden section-main">
+        <div class="text-balance px-10">
+            <h1 class=" text-center h2-4xl">Manuel Serrano</h1>
+            <p class=" dark:text-gray-300">
+                Soy un estudiante de ingeniería electrónica y automática en la Universidad Miguel Hernández de Elche,
+                con una profunda pasión por la programación y el desarrollo de tecnología. Combino mis estudios
+                académicos con proyectos personales y freelance, explorando desde el desarrollo web hasta la
+                inteligencia artificial y la automatización.
+            </p>
+            <button class="sm-button tracking-widest text-sm px-6 py-4 mx-auto m-10 text"><a href={{ "curriculum"
+                    }}>curriculum</a></button>
+        </div>
+    </section>
+
+
+    <section class="section-main w-full md:w-3/4 xl:w-2/3 2xl:w-2/4">
+        <div class=" mx-10 w-auto space space-y-8 pb-40 dark:text-gray-300 text-pretty">
+            <h1 class=" text-center h2-4xl dark:text-white">Mi carrera</h1>
+            <p>
+                Mi experiencia no se limita a la programación; he adquirido habilidades en sistemas tipo Linux
+                y en la gestión de servidores, incluyendo el uso de Proxmox entre tros sistemas. Esta experiencia me ha
+                permitido desarrollar una base en sistemas operativos y la administración de infraestructuras
+                de TI.
+            </p>
+            <p>
+                Uno de los proyectos más notables en los que he trabajado durante mi tiempo en la universidad ha sido
+                una investigación sobre mejoras en las Inspecciones Técnicas de Vehículos (ITV), específicamente en
+                relación con el protocolo OBD. Este proyecto me permitió explorar la intersección entre la ingeniería
+                automotriz y la tecnología de la información, ampliando mi comprensión de ambos campos.
+            </p>
+            <p>
+                Además, he contribuido significativamente al desarrollo de software de corrección CAD, donde he aplicado
+                mis habilidades en programación y diseño asistido por computadora para mejorar los procesos y la
+                eficiencia.
+            <p>
+                En el ámbito de mis proyectos personales, he desarrollado un framework de backend en C++ sin librerías,
+                un desafío que me ha permitido profundizar en mis habilidades de programación y comprensión de sistemas
+                complejos. Este proyecto incluye características como soporte para Jinja, HTTPS y bases de datos.
+
+            </p>
+            <p>
+                He explorado el campo de la inteligencia artificial con 'mcIA', un proyecto donde enseño a una IA a
+                jugar Minecraft, y hasta proyectos de automatización doméstica en Python o arduino, mis repositorios
+                demuestran mi compromiso continuo con el aprendizaje y la innovación en el campo de la ingeniería y la
+                tecnología.
+            </p>
+        </div>
+    </section>
+
+    <section class="md:flex hidden section-main grid-2col-10">
+        <div class=" w-2/5 text-left mr-20">
+            <h1 class="h2-4xl">Mi carrera</h1>
+            <p class=" text-gray-500 dark:text-gray-300 text-pretty">
+                Actualmente estoy estudiando en la universidad miguel hernandez de elche a tiempo completo
+                aunque tambien apendo por mi cuenta programacion entre otras cosas :D
+            </p>
+        </div>
+        <div class="section-main grid-2col-8">
+            <div class="pt-10">
+                <h1 class="h2-gray-4xl">Python</h1>
+                <h1 class="h2-gray-4xl">C</h1>
+                <h1 class="h2-gray-4xl">C++</h1>
             </div>
-            <div class="h-auto pr-4 w-auto">
-                <img class="h-[400px] rounded-2xl max-w-[133%] md:w-[100%] xl:w-[133%] object-cover bg-cover" src="{{ url_for('static', filename='images/main.jpg') }}" alt="">
+            <div class="pt-10">
+                <h1 class="h2-gray-4xl">Docker</h1>
+                <h1 class="h2-gray-4xl">C#</h1>
+                <h1 class="h2-gray-4xl">Arduino</h1>
+                <h1 class="h2-gray-4xl">Bash</h1>
             </div>
-        </section>
-        <section class="md:hidden section-main">
-            <div class="text-justify px-10">
-                <h1 class=" text-center h2-4xl">Manuel Serrano</h1>
-                <p class=" text-gray-500 dark:text-gray-300">
-                    Soy un estudiante de ingenieria electronica y automatica residente en Elche, España. Aunque en mi tiempo libre me dedico a apender sobre 
-                    programacion, concretamente en python, C#, c entre otros; actualmente estoy aprendiendo a programar web como este portfolio u otros projectos
-                    similares de forma freelancer. 
-                </p>
-                <button class="sm-button tracking-widest text-sm px-6 py-4 mx-auto m-10 text"><a href={{ "curriculum" }}>curriculum</a></button>
+        </div>
+    </section>
+    <section class="md:hidden block section-main w-5/6 mt-20">
+        <div class="text-balance">
+            <h1 class="h2-4xl text-center">Mi carrera</h1>
+            <p class=" text-gray-500 dark:text-gray-300">
+                Actualmente estoy estudiando en la universidad miguel hernandez de elche a tiempo completo
+                aunque tambien estudio por mi cuenta programacion entre otras cosas
+            </p>
+        </div>
+        <div class="pt-20 section-main grid-2col-8 mx-auto w-fit">
+            <div class="pt-10">
+                <h1 class="h2-gray-4xl">Python</h1>
+                <h1 class="h2-gray-4xl">C</h1>
+                <h1 class="h2-gray-4xl">C++</h1>
             </div>
-        </section>
-        <section class="md:flex hidden section-main grid-2col-10">
-            <div class=" w-2/5 text-left mr-20">
-                <h1  class="h2-4xl">Mi carrera</h1>
-                <p class=" text-gray-500 dark:text-gray-300">
-                    Actualmente estoy estudiando en la universidad miguel hernandez de elche a tiempo completo 
-                    aunque tambien apendo por mi cuenta programacion entre otras cosas :D
-                </p>
+            <div class="pt-10">
+                <h1 class="h2-gray-4xl">Docker</h1>
+                <h1 class="h2-gray-4xl">C#</h1>
+                <h1 class="h2-gray-4xl">Arduino</h1>
+                <h1 class="h2-gray-4xl">Bash</h1>
             </div>
-            <div class="section-main grid-2col-8">
-                <div class="pt-10">
-                    <h1  class="h2-gray-4xl">Python</h1>
-                    <h1  class="h2-gray-4xl">C</h1>
-                    <h1  class="h2-gray-4xl">C++</h1>
-                </div>
-                <div class="pt-10">
-                    <h1  class="h2-gray-4xl">Docker</h1>
-                    <h1  class="h2-gray-4xl">C#</h1>
-                    <h1  class="h2-gray-4xl">Arduino</h1>
-                    <h1  class="h2-gray-4xl">Bash</h1>
-                </div>
-            </div>
-        </section>
-        <section class="md:hidden block section-main w-5/6 mt-20">
-            <div class="text-justify">
-                <h1  class="h2-4xl text-center">Mi carrera</h1>
-                <p class=" text-gray-500 dark:text-gray-300">
-                    Actualmente estoy estudiando en la universidad miguel hernandez de elche a tiempo completo 
-                    aunque tambien estudio por mi cuenta programacion entre otras cosas
-                </p>
-            </div>
-            <div class="pt-20 section-main grid-2col-8 mx-auto w-fit">
-                <div class="pt-10">
-                    <h1  class="h2-gray-4xl">Python</h1>
-                    <h1  class="h2-gray-4xl">C</h1>
-                    <h1  class="h2-gray-4xl">C++</h1>
-                </div>
-                <div class="pt-10">
-                    <h1  class="h2-gray-4xl">Docker</h1>
-                    <h1  class="h2-gray-4xl">C#</h1>
-                    <h1  class="h2-gray-4xl">Arduino</h1>
-                    <h1  class="h2-gray-4xl">Bash</h1>
-                </div>
-            </div>
-        </section>
-    </main>
-    
+        </div>
+    </section>
+</main>
+
 
 {% endblock content %}

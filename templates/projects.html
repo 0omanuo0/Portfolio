@@ -3,15 +3,15 @@
 
 {% block content %}
 
-<main style="font-family: Montserrat" class="space-y-8 pb-40">
-    <section class="section-main pt-20 w-full flex justify-center ">
-        <div class=" w-fit md:grid-cols-2 md:grid flex flex-col justify-center">
+<main style="font-family: Montserrat" class="space-y-8 pb-40 pt-32 ">
+    <section class=" px-10 ">
+        <ul class="md:mx-auto md:container list-none flex flex-col justify-center items-center md:grid-cols-2 lg:grid-cols-3 md:grid gap-10">
             {% for x in projects %}
                 {% with proj=x %}
                     {% include "blocks/project-template.html" %}
                 {% endwith %}
             {% endfor %}
-        </div>
+        </ul>
     </section>
 </main>
 

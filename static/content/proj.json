@@ -4,14 +4,14 @@
             "Title" : "Portfolio",
             "Description" : "Este portfolio, diseñado con flask y tailwind",
             "Content" : "",
-            "image" : "images/proj1.png",
+            "image" : "images/proj1.webp",
             "url" : ["https://github.com/0omanuo0/Portfolio", "Ir a github"]
         },
         {
             "Title" : "Corrector CAD",
             "Description" : "Trabajo en el departamento de CAD",
             "Content" : "No es publico",
-            "image" : "images/cad.png",
+            "image" : "images/cad.webp",
             "url" : ["https://corrector-cad.umh.es", "Corrector UMH"]
         },
         {
@@ -25,21 +25,21 @@
             "Title" : "Backend framework",
             "Description" : "Backend escrito en c++ sin librerias como proyecto para aprender, soporta jinja, https, bases de datos...",
             "Content" : "",
-            "image" : "images/framework.png",
+            "image" : "images/framework.webp",
             "url" : ["https://github.com/0omanuo0/FramworkCpp", "Ir a github"]
         },
         {
             "Title" : "mcIA",
             "Description" : "Projecto de enseñar a una ia a jugar al minecraft",
             "Content" : "",
-            "image" : "images/proj2.png",
+            "image" : "images/proj2.webp",
             "url" : ["https://github.com/0omanuo0/mcIA", "Ir a github"]
         },
         {
             "Title" : "Led Control",
             "Description" : "Sistema para controlar una tira led con un ESP32",
             "Content" : "",
-            "image" : "images/proj2.png",
+            "image" : "images/proj2.webp",
             "url" : ["https://github.com/0omanuo0/led-control", "Ir a github"]
         }
     ]
