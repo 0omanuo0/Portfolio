@@ -1,11 +1,13 @@
 {
     "Projects" : [
+        
+        
         {
-            "Title" : "Portfolio",
-            "Description" : "Este portfolio, diseñado con flask y tailwind",
+            "Title" : "Backend framework",
+            "Description" : "Backend escrito en c++ sin librerias como proyecto para aprender, soporta jinja, https, bases de datos...",
             "Content" : "",
-            "image" : "images/proj1.webp",
-            "url" : ["https://github.com/0omanuo0/Portfolio", "Ir a github"]
+            "image" : "images/framework.webp",
+            "url" : ["https://github.com/0omanuo0/FramworkCpp", "Ir a github"]
         },
         {
             "Title" : "Corrector CAD",
@@ -15,32 +17,46 @@
             "url" : ["https://corrector-cad.umh.es", "Corrector UMH"]
         },
         {
-            "Title" : "Projecto globo",
-            "Description" : "Projecto del IEEE de un globo estratosferico",
-            "Content" : "",
-            "image" : "images/strato.jpg",
-            "url" : ["https://github.com/0omanuo0/projecto-globo", "Ir a github"]
+            "Title": "Minecraft-console",
+            "Description": "Herramienta para gestionar servidores de Minecraft desde consola.",
+            "Content": "",
+            "image": "images/proj5.webp",
+            "url": ["https://github.com/0omanuo0/Minecraft-console", "Ir a GitHub"]
+        },        
+        {
+            "Title": "Ulises Blanco",
+            "Description": "Página web dedicada al pintor Ulises Blanco, destacando su legado artístico.",
+            "Content": "",
+            "image": "images/UlisesBlanco.webp",
+            "url": ["https://ulisesblanco.com", "Ir a la web"]
         },
         {
-            "Title" : "Backend framework",
-            "Description" : "Backend escrito en c++ sin librerias como proyecto para aprender, soporta jinja, https, bases de datos...",
-            "Content" : "",
-            "image" : "images/framework.webp",
-            "url" : ["https://github.com/0omanuo0/FramworkCpp", "Ir a github"]
-        },
-        {
-            "Title" : "mcIA",
-            "Description" : "Projecto de enseñar a una ia a jugar al minecraft",
-            "Content" : "",
-            "image" : "images/proj2.webp",
-            "url" : ["https://github.com/0omanuo0/mcIA", "Ir a github"]
-        },
+            "Title": "ScannerTire",
+            "Description": "Escáner de neumáticos para vehículos, automatizando inspección y mantenimiento.",
+            "Content": "",
+            "image": "images/proj4.webp",
+            "url": ["https://github.com/0omanuo0/ScannerTire", "Ir a GitHub"]
+        },    
         {
             "Title" : "Led Control",
             "Description" : "Sistema para controlar una tira led con un ESP32",
             "Content" : "",
             "image" : "images/proj2.webp",
             "url" : ["https://github.com/0omanuo0/led-control", "Ir a github"]
+        },
+        {
+            "Title" : "Portfolio",
+            "Description" : "Este portfolio, diseñado con flask y tailwind",
+            "Content" : "",
+            "image" : "images/proj1.webp",
+            "url" : ["https://github.com/0omanuo0/Portfolio", "Ir a github"]
+        },
+        {
+            "Title" : "Projecto globo",
+            "Description" : "Projecto del IEEE de un globo estratosferico",
+            "Content" : "",
+            "image" : "images/strato.jpg",
+            "url" : ["https://github.com/0omanuo0/projecto-globo", "Ir a github"]
         }
     ]
 }
