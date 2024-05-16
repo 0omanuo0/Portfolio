@@ -3,25 +3,27 @@
 
 {% block content %}
 
-    <main style="font-family: Montserrat" class="block md:none space-y-8 pb-40">
-        <section class=" md:hidden grid section-main pt-10 h-screen items-center" style="background-image: url({{ url_for('static', filename='images/main.jpg') }});">
-            <div class="text-center m-auto bg-slate-50 opacity-75 px-10 py-8">
-                <h1 class="leading-10 py-5 text-5xl text-center">Manuel Serrano</h1>
-                <div class="  text-gray-500 mb-6">Probably an engineer and a developer :D</div>
-            </div>
-        </section>
-        <section class=" md:flex hidden section-main pt-10 h-screen grid-cols-2">
-            <div class=" w-full h-auto text-right mr-10">
-                <h1 class="dark:text-white leading-10 py-5 text-5xl">Manuel Serrano</h1>
-                <div class=" dark:text-gray-300 text-gray-500">Probably an engineer and a developer :D</div>
-            </div>
-            <div class="h-auto">
-                <img class=" rounded-2xl 2xl:max-w-[133%]" width="1080"
-                    src="{{ url_for('static', filename='images/main.jpg') }}" alt="">
-            </div>
-        </section>
+    <main style="font-family: Montserrat" class="block md:none space-y-20 pb-40">
+        <div>
+            <section class=" md:hidden grid section-main pt-10 h-screen items-center" style="background-image: url({{ url_for('static', filename='images/main.jpg') }});">
+                <div class="text-center m-auto bg-slate-50 opacity-75 px-10 py-8">
+                    <h1 class="leading-10 py-5 text-5xl text-center">Manuel Serrano</h1>
+                    <div class="  text-gray-500 mb-6">Probably an engineer and a developer :D</div>
+                </div>
+            </section>
+            <section class=" md:flex hidden section-main pt-10 h-screen grid-cols-2">
+                <div class=" w-full h-auto text-right mr-10">
+                    <h1 class="dark:text-white leading-10 py-5 text-5xl">Manuel Serrano</h1>
+                    <div class=" dark:text-gray-300 text-gray-500">Probably an engineer and a developer :D</div>
+                </div>
+                <div class="h-auto">
+                    <img class=" rounded-2xl 2xl:max-w-[133%]" width="1080"
+                        src="{{ url_for('static', filename='images/main.jpg') }}" alt="">
+                </div>
+            </section>
+        </div>
 
-        <section class="section-main w-full md:w-4/5">
+        <section class=" section-main w-full md:w-4/5">
             <h1 class="dark:text-white text-center leading-10 py-5 text-5xl ">MIS PROJECTOS </h1>
             <p class="md:hidden block dark:text-gray-300 text-gray-500 text-sm text-center">Desliza para ver mas!</p>
             <div class="flex items-center">
@@ -37,13 +39,15 @@
             </div>
         </section>
 
-        <section class="section-main w-5/6 text-balance">
-            <h1 class="dark:text-white leading-10 py-5 text-4xl">Mi experiencia </h1>
-            <div class="dark:text-gray-300 text-gray-500">
-                Aunque no sea mucha, aquí iré poniendo mi experiencia laboral.
+        <section class="section-main w-5/6 2xl:w-3/4 text-balance">
+            <div class=" text-center md:text-left pb-4 border-b-2 border-neutral-500 dark:border-neutral-500">
+                <h1 class="dark:text-white leading-10 py-5 text-4xl">Mi experiencia </h1>
+                <p class="dark:text-gray-300 text-gray-500 px-8 mx-auto italic">
+                    Aunque no sea mucha, aquí iré poniendo mi experiencia laboral.
+                </p>
             </div>
-            <ul class="sm:flex sm:grid-cols-3 xs:space-x-3 xs:grid xs:grid-cols-2 sm:space-x-8 w-auto py-10">
-                <li class=" items-center space-y-4 py-8 w-auto sm:w-56">
+            <ul class=" flex flex-col md:grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-between items-center">
+                <li class=" items-center space-y-4 py-8 w-56">
                     <h2 class=" h2-xl">Electrofret</h2>
                     <p class=" dark:text-gray-300 text-gray-500">Reparacion e instalacion de equipos frío industrial</p>
                     <div class=" text-xs dark:text-gray-300 text-gray-500">Mayo 2018 - Oct 2018</div>
@@ -73,12 +77,12 @@
                 <div class=" pt-12 md:flex md:grid-cols2 md:space-x-8 ">
                     <div class="mt-10 md:mt-1">
                         <h2 class="h2-wide">NOMBRE</h2>
-                        <input type="text" class="transition-gray input-text-1 w-full md:w-32" maxlength="256" id="name" name="name"
+                        <input type="text" class="transition-gray input-text-1 w-full md:w-44" maxlength="256" id="name" name="name"
                             data-name="Name" placeholder="Nombre" id="Name">
                     </div>
-                    <div class="mt-10 md:mt-1">
+                    <div class="mt-10 md:mt-1 w-full">
                         <h2 class="h2-wide">EMAIL</h2>
-                        <input type="text" class="transition-gray input-text-1 w-full md:w-64" maxlength="256" id="email"
+                        <input type="text" class="transition-gray input-text-1 w-full" maxlength="256" id="email"
                             name="email" data-name="Email" placeholder="Email">
                     </div>
                 </div>

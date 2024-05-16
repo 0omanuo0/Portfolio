@@ -76,7 +76,7 @@ def subprocessNPX(debug=False):
     tailwindcss = subprocess.Popen(tailwindcss_command, stdin=subprocess.PIPE, shell=True) if debug else None
 
 if __name__ == '__main__':
-    debug = False
+    debug = True
     subprocessNPX(debug=debug)
     if not debug:
         context = ('secrets/fullchain.pem', 'secrets/privkey.pem')#certificate and key files host='manu365.dev'

@@ -80,10 +80,10 @@
         @apply dark:text-white;
     }
     .transition-opacity-60{
-        @apply transition-opacity ease-in duration-300;
+        @apply transition-all ease-in duration-200;
     }
     .transition-opacity-60:hover{
-        @apply opacity-60;
+        @apply opacity-70 ;
     }
     .minimal-button{
         @apply text-gray-500 dark:text-gray-300 tracking-widest hover:text-gray-800 hover:dark:text-gray-200;
