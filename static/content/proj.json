@@ -4,13 +4,15 @@
         
         {
             "Title" : "Backend framework",
-            "Description" : "Backend escrito en c++ sin librerias como proyecto para aprender, soporta jinja, https, bases de datos...",
+            "tecnologies" : ["Cplusplus", "azuresqldatabase"],
+            "Description" : "Backend escrito en C++ sin librerias como proyecto para aprender, soporta jinja, https, bases de datos...",
             "Content" : "",
             "image" : "images/framework.webp",
             "url" : ["https://github.com/0omanuo0/FramworkCpp", "Ir a github"]
         },
         {
             "Title" : "Corrector CAD",
+            "tecnologies" : ["Csharp", "dotnetcore", "autocad"],
             "Description" : "Trabajo en el departamento de CAD",
             "Content" : "No es publico",
             "image" : "images/cad.webp",
@@ -18,6 +20,7 @@
         },
         {
             "Title": "Minecraft-console",
+            "tecnologies": ["Python", "nextjs", "typescript", "tailwindcss", "react"],
             "Description": "Herramienta para gestionar servidores de Minecraft desde consola.",
             "Content": "",
             "image": "images/proj5.webp",
@@ -25,6 +28,7 @@
         },        
         {
             "Title": "Ulises Blanco",
+            "tecnologies": ["nextjs", "typescript", "react", "postgresql"],
             "Description": "Página web dedicada al pintor Ulises Blanco, destacando su legado artístico.",
             "Content": "",
             "image": "images/UlisesBlanco.webp",
@@ -32,6 +36,7 @@
         },
         {
             "Title": "ScannerTire",
+            "tecnologies": ["Python", "opencv", "tensorflow"],
             "Description": "Escáner de neumáticos para vehículos, automatizando inspección y mantenimiento.",
             "Content": "",
             "image": "images/proj4.webp",
@@ -39,6 +44,7 @@
         },    
         {
             "Title" : "Led Control",
+            "tecnologies":["Cplusplus", "arduino"],
             "Description" : "Sistema para controlar una tira led con un ESP32",
             "Content" : "",
             "image" : "images/proj2.webp",
@@ -46,6 +52,7 @@
         },
         {
             "Title" : "Portfolio",
+            "tecnologies" : ["Python", "flask", "tailwindcss"],
             "Description" : "Este portfolio, diseñado con flask y tailwind",
             "Content" : "",
             "image" : "images/proj1.webp",
@@ -53,6 +60,7 @@
         },
         {
             "Title" : "Projecto globo",
+            "tecnologies" : ["Cplusplus", "arduino"],
             "Description" : "Projecto del IEEE de un globo estratosferico",
             "Content" : "",
             "image" : "images/strato.jpg",

@@ -5,22 +5,48 @@
             <img src={{ "static/" + proj.image }} class=" h-full w-full object-cover blur-[1px]" alt="">
         </div>
         <div
-            class=" bg-black/50 absolute top-0 tracking-wide left-0 h-full w-full flex flex-col justify-center items-center px-4">
+            class=" bg-black/50 absolute top-0 tracking-wide left-0 h-full w-full flex flex-col justify-center items-center px-4"
+        >
             <h1 class=" text-center text-3xl font-bold mb-2 text-white">{{ proj.Title }}</h1>
-            <h5 class=" px-6 text-pretty text-center text-md xs:text-lg md:text-xl tracking-wide text-gray-300">{{ proj.Description }}
+            <h5 
+                class=" px-6 text-pretty text-center text-md xs:text-lg md:text-xl tracking-wide text-gray-300"
+            >
+                {{ proj.Description }}
             </h5>
+
+            <ul class="absolute left-0 bottom-0 px-4 py-4 space-y-2">
+                {% for tech in proj.tecnologies %}
+                    {% if tech in ["tensorflow"] %}
+                        <li class="text-white px-2 py-1 bg-white rounded-full shadow-lg">
+                            <i class="devicon-{{ tech }}-original colored text-xl"></i>
+                        </li>
+                    {% elif tech in ["autocad"] %}
+                        <li class="text-white px-2 py-2 bg-white rounded-full shadow-lg">
+                            <img src="{{ url_for('static', filename='images/icons8-autocad-48.svg') }}" alt="autocad" class="h-[1.25rem]">
+                        </li>
+                    {% else %}
+                        <li class="text-white px-2 py-1 bg-white rounded-full shadow-lg">
+                            <i class="devicon-{{ tech | lower }}-plain colored text-xl"></i>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
             {% if proj.url != 0 %}
-            <div class="py-6 w-full px-10">
-                {% if proj.Content != "" %}
-                <p
-                    class="text-center md:text-left mb-10 text-white bg-neutral-700 bg-opacity-30 backdrop-blur-sm rounded-lg p-2 px-4 w-fit">
-                    {{ proj.Content }}
-                </p>
-                {% endif %}
-                <button class="sm-button text-base tracking-wider float-right absolute right-8 bottom-8">
-                    <a href="{{ proj.url[0] }}" class="">{{proj.url[1] }}</a>
-                </button>
-            </div>
+                <div class="py-6 w-full px-10">
+                    {% if proj.Content != "" %}
+                    <p
+                        class="text-center md:text-left mb-10 text-white bg-neutral-700 bg-opacity-30 backdrop-blur-sm rounded-lg p-2 px-4 w-fit"
+                    >
+                        {{ proj.Content }}
+                    </p>
+                    {% endif %}
+                    <button 
+                        class="button-projects text-base tracking-wider float-right absolute right-8 bottom-8 "
+                    >
+                        <a href="{{ proj.url[0] }}" class="">{{proj.url[1] }}</a>
+                    </button>
+                </div>
             {% endif %}
         </div>
     </div>
