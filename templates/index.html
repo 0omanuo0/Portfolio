@@ -27,7 +27,7 @@
             <h1 class="dark:text-white text-center leading-10 py-5 text-5xl ">MIS PROJECTOS </h1>
             <p class="md:hidden block dark:text-gray-300 text-gray-500 text-sm text-center">Desliza para ver mas!</p>
             <div class="flex items-center">
-                <button id="left" onclick="carr(-1)" class="hidden md:block sm-button mr-10 mt-[-100px]"><</button>
+                <button id="left" onclick="carr(-1)" class="hidden md:block button-carroussel mr-10 mt-[-100px]"><</button>
                 <div id="panel_carrousel" class="duration-100 flex m-auto w-full pt-5 md:w-3/4 md:pt-20 h-auto place-content-center">
                     {% for card in range(projects|length) %}
                         {% with proj=projects[card], id1=card %}
@@ -35,7 +35,7 @@
                         {% endwith %}
                     {% endfor %}
                 </div>
-                <button id="right" onclick="carr(1)" class="hidden md:block sm-button ml-10 mt-[-100px]">></button>
+                <button id="right" onclick="carr(1)" class="hidden md:block button-carroussel ml-10 mt-[-100px]">></button>
             </div>
         </section>
 

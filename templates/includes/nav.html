@@ -1,19 +1,20 @@
 
 
 <header class="z-10 flex fixed items-center w-full h-20 backdrop-blur-md dark:bg-neutral-800/80 bg-white/80 top-0">
-    <div class=" dark:text-white dark:border-white ml-8 border-b-[3px] border-black mb-[4px] font-semibold tracking-wide text-[24px]" style="font-family: Montserrat;">
+    <h1 class=" dark:text-white  ml-8 border-b-[3px] border-black dark:border-white mb-[4px] font-semibold tracking-wide text-[24px]" style="font-family: Montserrat;">
         Portfolio
-    </div>
+    </h1>
     <nav id="base" class="relative hidden lg:flex items-center ml-auto pr-20" style="font-family: Montserrat;">
-        <ul class="flex space-x-14 text-xs font-semibold">
+        <ul class="flex space-x-14 text-sm font-medium">
             <li>
-                <button class=" minimal-button-a"><a href="/">HOME</a></button>
+                <button id="home" class=" minimal-button-a"><a href="/">HOME</a></button>
+            </li>
+            <span class="text-black dark:text-white">|</span>
+            <li>
+                <button id="projects" class=" minimal-button"><a href="/projects">PROJECTS</a></button>
             </li>
             <li>
-                <button class=" minimal-button"><a href="/projects">PROJECTS</a></button>
-            </li>
-            <li>
-                <button class=" minimal-button"><a href="/aboutme">ABOUT ME</a></button>
+                <button id="aboutme" class=" minimal-button"><a href="/aboutme">ABOUT ME</a></button>
             </li>
         </ul>
     </nav>
@@ -28,6 +29,7 @@
             <li class="pb-2 border-b border-gray-300">
                 <button class=" minimal-button-a text-sm"><a href="/">HOME</a></button>
             </li>
+            
             <li class="pb-2 border-b border-gray-300">
                 <button class=" minimal-button-a text-sm"><a href="/projects">PROJECTS</a></button>
             </li>
@@ -37,6 +39,21 @@
         </ul>
     </div>
 </header>
+
+<script>
+    // check in wich page we are and highlight the corresponding button
+    const url = window.location.href;
+
+    if (url.includes("projects")) {
+        document.getElementById("projects").classList.add("minimal-button-a");
+        document.getElementById("home").classList.remove("minimal-button-a");
+        document.getElementById("home").classList.add("minimal-button");
+    } else if (url.includes("aboutme")) {
+        document.getElementById("aboutme").classList.add("minimal-button-a");
+        document.getElementById("home").classList.remove("minimal-button-a");
+        document.getElementById("home").classList.add("minimal-button");
+    }
+</script>
 
 <script>
     window.addEventListener("resize", checkDivVisibility);
