@@ -2,7 +2,12 @@
 <li id="{{ proj.Title }}" class=" w-full">
     <div class="relative aspect-square max-w-96 rounded-2xl overflow-hidden text-balance">
         <div class="absolute top-0 left-0 h-full w-full ">
-            <img src={{ "static/" + proj.image }} class=" h-full w-full object-cover blur-[1px]" alt="">
+            <img 
+                src={{ "static/" + proj.image }} 
+                class=" h-full w-full object-cover blur-[1px]" 
+                alt="{{ proj.Title + proj.Description }}"
+                title="{{ proj.Title }}"
+            >
         </div>
         <div
             class=" bg-black/45 dark:bg-black/60 absolute top-0 tracking-wide left-0 h-full w-full flex flex-col justify-center items-center px-4"
