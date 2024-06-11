@@ -65,8 +65,15 @@
         @apply outline-none border-gray-800;
     }
     .input-text-1{
-        @apply rounded-md py-2 px-4 border-[1px] border-gray-300 dark:placeholder:text-gray-300 ;
-        @apply dark:bg-neutral-700 dark:border-zinc-800 dark:text-gray-100;
+        @apply w-full p-2 rounded border;
+        @apply bg-white text-neutral-800 border-neutral-300;
+        @apply dark:bg-neutral-700 dark:text-neutral-200 dark:border-neutral-700;
+        @apply transition duration-300 ease-in-out ;
+        @apply focus:outline-none focus:ring-1;
+        @apply focus:border-neutral-500 focus:ring-neutral-600;
+        @apply dark:focus:border-neutral-600 dark:focus:bg-neutral-700/60 dark:focus:ring-neutral-600;
+        @apply hover:border-neutral-600 ;
+        @apply dark:hover:bg-neutral-700/60;
     }
     .submit-button{
         @apply bg-black mt-6 text-white py-4 px-8 text-xs tracking-widest rounded-md;
