@@ -5,7 +5,7 @@
         Portfolio
     </h1>
     <nav id="base" class="relative hidden lg:flex items-center ml-auto pr-20" style="font-family: Montserrat;">
-        <ul class="flex space-x-14 text-sm font-medium">
+        <ul class="flex space-x-10 text-sm font-medium mr-10">
             <li>
                 <button id="home" class=" minimal-button-a"><a href="/">HOME</a></button>
             </li>
@@ -18,14 +18,15 @@
             </li>
         </ul>
     </nav>
-    <div id="showBtn" class="relative items-center ml-auto pr-10 sm:pr-20 text-center">
+    {% include 'includes/darkmode.html' %}
+    <div id="showBtn" class="relative items-center ml-auto pr-20 text-center">
         <button class="submit-button px-2 py-2 mt-0 items-center">
             <svg class="h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M3 10h18c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2zm0 6h18c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2zm0-12h18c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2z" />
               </svg>
         </button>
         <ul id="list" class="absolute z-11 bg-white dark:bg-neutral-700 shadow-[0_0px_30px_-1px_rgba(0,0,0,0.2)] 
-                            dark:text-white space-y-4 px-8 py-4 rounded-xl mx-auto mt-2 text-center transform -translate-x-1/2 right-0" style="display:none;">
+                            dark:text-white space-y-4 px-8 py-4 rounded-xl mx-auto mt-2 text-center transform -translate-x-1/4 right-0" style="display:none;">
             <li class="pb-2 border-b border-gray-300">
                 <button class=" minimal-button-a text-sm"><a href="/">HOME</a></button>
             </li>
@@ -34,7 +35,7 @@
                 <button class=" minimal-button-a text-sm"><a href="/projects">PROJECTS</a></button>
             </li>
             <li class="">
-                <button class=" minimal-button-a text-sm"><a href="/aboutme">ABOUT ME</a></button>
+                <button class=" minimal-button-a text-sm text-nowrap"><a href="/aboutme">ABOUT ME</a></button>
             </li>
         </ul>
     </div>
