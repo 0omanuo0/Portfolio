@@ -11,14 +11,24 @@
                     <div class="  text-gray-500 mb-6">Probably an engineer and a developer :D</div>
                 </div>
             </section>
-            <section class=" md:flex hidden section-main pt-10 h-screen grid-cols-2">
-                <div class=" w-full h-auto text-right mr-10">
+            <section class=" md:flex hidden items-center pt-10 justify-center px-20 xl:px-44 space-x-20 h-screen grid-cols-2 w-full">
+                <div class=" text-right ">
                     <h1 class="dark:text-white leading-10 py-5 text-5xl">Manuel Serrano</h1>
                     <div class=" dark:text-gray-300 text-gray-500">Probably an engineer and a developer :D</div>
                 </div>
-                <div class="h-auto">
-                    <img class=" rounded-2xl 2xl:max-w-[133%]" width="1080"
-                        src="{{ url_for('static', filename='images/main.jpg') }}" alt="">
+                <div class=" relative h-[400px] aspect-[4/3] ">
+                    <img 
+                        class=" rounded-2xl 2xl:max-w-[133%] absolute object-cover h-full w-full blur-3xl shadow-2xl shadow-neutral-500" 
+                        width="1080"
+                        src="{{ url_for('static', filename='images/main.jpg') }}" 
+                        alt=""
+                    >
+                    <img 
+                        class=" rounded-2xl 2xl:max-w-[133%] absolute object-cover h-full w-full" 
+                        width="1080"
+                        src="{{ url_for('static', filename='images/main.jpg') }}" 
+                        alt=""
+                    >
                 </div>
             </section>
         </div>
@@ -40,30 +50,30 @@
         </section>
 
         <section class="section-main w-5/6 2xl:w-3/4 text-balance">
-            <div class=" text-center md:text-left pb-4 border-b-2 border-neutral-500 dark:border-neutral-500">
+            <div class=" text-center md:text-left pb-4 border-b-2 border-neutral-500 dark:border-neutral-500 mb-4">
                 <h1 class="dark:text-white leading-10 py-5 text-4xl">Mi experiencia </h1>
-                <p class="dark:text-gray-300 text-gray-500 px-8 mx-auto italic">
+                <p class="dark:text-gray-300 text-gray-500 px-6 mx-auto italic">
                     Aunque no sea mucha, aquí iré poniendo mi experiencia laboral.
                 </p>
             </div>
-            <ul class=" flex flex-col md:grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-between items-center">
-                <li class=" items-center space-y-4 py-8 w-56">
-                    <h2 class=" h2-xl">Electrofret</h2>
+            <ul class=" flex flex-col gap-10 md:grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-between  xs:max-w-[50vw] md:max-w-fit">
+                <li class=" items-center space-y-4 ">
+                    <h2 class=" h2-xl uppercase">Electrofret</h2>
                     <p class=" dark:text-gray-300 text-gray-500">Reparacion e instalacion de equipos frío industrial</p>
                     <div class=" text-xs dark:text-gray-300 text-gray-500">Mayo 2018 - Oct 2018</div>
                 </li>
-                <li class=" items-center space-y-4 py-8 w-56">
-                    <h2 class=" h2-xl w-max">CAD en UMH</h2>
-                    <p class=" dark:text-gray-300 text-gray-500">Web developer & C# Objectarx</p>
+                <li class=" items-center space-y-4 ">
+                    <h2 class=" h2-xl w-max uppercase">CAD en UMH</h2>
+                    <p class=" dark:text-gray-300 text-gray-500">Web developer & C# autocad Objectarx engineer</p>
                     <div class="text-xs dark:text-gray-300 text-gray-500">Sept 2022 - Ene 2023</div>
                 </li>
-                <li class=" items-center space-y-4 py-8 w-56">
-                    <h2 class=" h2-xl">Investigacion</h2>
+                <li class=" items-center space-y-4 ">
+                    <h2 class=" h2-xl uppercase">Investigacion</h2>
                     <p class=" dark:text-gray-300 text-gray-500">Investigacion sobre mejoras en la ITV en relacion con el protocolo OBD</p>
                     <div class="text-xs dark:text-gray-300 text-gray-500">Jun 2023 - Ene 2024</div>
                 </li>
-                <li class=" items-center space-y-4 py-8 w-56">
-                    <h2 class=" h2-xl">Investigacion</h2>
+                <li class=" items-center space-y-4 ">
+                    <h2 class=" h2-xl uppercase">Investigacion</h2>
                     <p class=" dark:text-gray-300 text-gray-500">Investigacion y desarroyo de un prototipo de escaner para pneumaticos</p>
                     <div class="text-xs dark:text-gray-300 text-gray-500">Abr 2024 - actual</div>
                 </li>
