@@ -8,8 +8,8 @@ var touched = false;
 
 function carr(direction = 0) {
     console.log(direction);
-    if(direction > 0 && pos < cards) pos++;
-    else if(direction < 0 && pos > 1) pos--;
+    if (direction > 0 && pos < cards) pos++;
+    else if (direction < 0 && pos > 1) pos--;
     console.log(pos);
 
     for (let i = 1; i <= cards; i++) {
@@ -43,20 +43,50 @@ function getScreenWidth() {
 }
 
 
-panel.addEventListener("touchstart", (event) => {
-    if (getScreenWidth() < 768) {
-        let initialX = event.touches[0].clientX;
-        let initialY = event.touches[0].clientY;
-        document.addEventListener("touchend", (eventEnd) => {
-            let currentX = eventEnd.changedTouches[0].clientX;
-            let currentY = eventEnd.changedTouches[0].clientY;
-            if (Math.abs(initialX - currentX) > Math.abs(initialY - currentY) && !touched) {
-                if (initialX - currentX < 0) { carr(-1); }
-                else if (initialX - currentX > 0) { carr(1); }
-                touched = true;
+
+panel.addEventListener('touchstart', (e) => {
+    let startX = 0;
+    let startY = 0;
+    let endX = 0;
+    let endY = 0;
+    let isHorizontal = false;
+    let scrolledAmount = 1;
+
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    panel.addEventListener('touchend', (e) => {
+        reset();
+    });
+    panel.addEventListener('touchmove', (e) => {
+        endX = e.touches[0].clientX;
+        endY = e.touches[0].clientY;
+
+        const deltaX = endX - startX;
+        const deltaY = endY - startY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            isHorizontal = true;
+            e.preventDefault(); // Bloquea el scroll vertical
+            if (scrolledAmount > 3) reset();
+            if (deltaX > 100 * scrolledAmount) {
+                carr(-1);
+                scrolledAmount++;
+            } else if (deltaX < -100 * scrolledAmount) {
+                carr(1);
+                scrolledAmount++;
             }
-            document.removeEventListener("touchend", null);
-        });
+        }
+    });
+    const reset = () => {
+        startX = 0;
+        startY = 0;
+        endX = 0;
+        endY = 0;
+        isHorizontal = false;
+        scrolledAmount = 1;
+    
+        panel.removeEventListener('touchend', null);
+        panel.removeEventListener('touchmove', null);
     }
 });
 
