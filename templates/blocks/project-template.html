@@ -10,15 +10,17 @@
             >
         </div>
         <div
-            class=" bg-black/45 dark:bg-black/60 absolute top-0 tracking-wide left-0 h-full w-full flex flex-col justify-center items-center px-4"
+            class=" bg-black/50 dark:bg-black/60 absolute top-0 tracking-wide left-0 h-full w-full flex flex-col justify-center items-center px-4"
         >
-            <h1 class=" text-center text-3xl font-bold mb-2 text-white">{{ proj.Title }}</h1>
-            <h5 
-                class=" px-6 text-center text-md text-lg text-balance tracking-wide text-gray-300"
+            <h1 
+                class=" text-xl md:text-3xl font-bold mb-2 text-white absolute top-0 left-0 w-full py-6 md:my-6 text-center"
             >
+                {{ proj.Title }}
+            </h1>
+                
+            <p class=" ml-14 text-base md:text-lg  text-balance tracking-wide text-gray-300">
                 {{ proj.Description }}
-            </h5>
-
+            </p>
             <ul class="absolute left-0 bottom-0 px-4 py-4 space-y-2">
                 {% for tech in proj.tecnologies %}
                     {% if tech in ["tensorflow"] %}
@@ -38,13 +40,13 @@
             </ul>
 
             {% if proj.url != 0 %}
-                <div class="py-6 w-full px-10">
+                <div class="py-6 w-full px-12">
                     {% if proj.Content != "" %}
-                    <p
-                        class="text-center md:text-left mb-10 text-white bg-neutral-700 bg-opacity-30 backdrop-blur-sm rounded-lg p-2 px-4 w-fit"
-                    >
-                        {{ proj.Content }}
-                    </p>
+                        <p
+                            class="text-center md:text-left text-white bg-neutral-700 bg-opacity-30 backdrop-blur-sm rounded-lg p-2 px-4 w-fit"
+                        >
+                            {{ proj.Content }}
+                        </p>
                     {% endif %}
                     <button 
                         class="button-projects text-base tracking-wider float-right absolute right-8 bottom-8 "

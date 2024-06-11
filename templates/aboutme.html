@@ -2,13 +2,13 @@
 {% block title %} About me {% endblock %}
 
 {% block content %}
-<main style="font-family: Montserrat" class="pb-40">
+<main style="font-family: Montserrat" class="pb-40 text-gray-700">
     <div class=" w-full pt-40">
-        <p class=" text-center dark:text-white ">HELLO THERE!</p>
+        <p class=" text-center text-black dark:text-white ">HELLO THERE!</p>
     </div>
     <section class=" md:flex hidden -mt-32 section-main h-screen grid-cols-2 space-x-8">
         <div class=" w-2/4 md:w-4/5 lg:w-2/4  dark:text-gray-300 leading-7">
-            <h1 class=" text-center h2-4xl">Sobre mí</h1>
+            <h1 class=" text-center h2-4xl text-black dark:text-white">Sobre mí</h1>
             <p class=" text-balance">
                 Soy un estudiante de ingeniería electrónica y automática en la Universidad Miguel Hernández de Elche,
                 con una profunda pasión por la programación y el desarrollo de tecnología. Combino mis estudios
@@ -36,14 +36,17 @@
                 académicos con proyectos personales y freelance, explorando desde el desarrollo web hasta la
                 inteligencia artificial y la automatización.
             </p>
-            <button class="sm-button tracking-widest text-sm px-6 py-4 mx-auto m-10 text"><a href={{ "curriculum"
-                    }}>curriculum</a></button>
+            <button class="sm-button tracking-widest text-sm px-6 py-4 m-10 text bg-white dark:text-neutral-800 rounded-lg shadow-lg hover:scale-110 transition-transform duration-300 ease-in-out">
+                <a href={{ "curriculum"}}>
+                    curriculum
+                </a>
+            </button>
         </article>
     </section>
 
 
     <section class="section-main w-full md:w-3/4 xl:w-2/3 2xl:w-2/4">
-        <article class=" mx-10 w-auto space space-y-8 pb-40 dark:text-gray-300 text-pretty">
+        <article class=" mx-10 w-auto space space-y-8 md:pb-40 dark:text-gray-300 text-pretty">
             <h1 class=" text-center h2-4xl dark:text-white">Mi carrera</h1>
             <p>
                 Mi experiencia no se limita a la programación; he adquirido habilidades en sistemas tipo Linux
@@ -106,7 +109,7 @@
     <section class="md:hidden block section-main w-5/6 mt-20">
         <article class="text-balance">
             <h1 class="h2-4xl text-center">Mi carrera</h1>
-            <p class=" text-gray-500 dark:text-gray-300">
+            <p class=" text-gray-700 dark:text-gray-300">
                 Actualmente estoy estudiando en la universidad miguel hernandez de elche a tiempo completo
                 aunque tambien estudio por mi cuenta programacion entre otras cosas
             </p>
