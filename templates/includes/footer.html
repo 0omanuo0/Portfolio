@@ -1,30 +1,32 @@
 
-<footer class="flex h-[10vh] dark:bg-neutral-700 bg-gray-300 items-center px-10 lg:px-20 py-6 w-full absolute ">
-    <p class=" text-xs tracking-widest dark:text-gray-200 text-gray-600">Todos los derechos reservados a seuso®</p>
-    <nav class="relative md:flex items-center ml-auto pr-4 lg:pr-20" style="font-family: Montserrat;">
-        <ul class="flex space-x-4 lg:space-x-8 xl:space-x-14 text-xs font-semibold">
+<footer class="flex h-[10vh] dark:bg-neutral-700 bg-gray-300 items-center px-10 lg:px-20 py-6 w-full absolute space-x-8">
+    <p class=" text-xs tracking-widest dark:text-gray-200 text-gray-600 sm:text-nowrap">
+        Todos los derechos reservados a seuso®
+    </p>
+    <nav class="relative md:flex items-center ml-auto pr-4 lg:pr-20 xs:w-full justify-end w-fit" style="font-family: Montserrat;">
+        <ul class="flex space-x-4 lg:space-x-8 xl:space-x-14 text-lg md:text-xs font-semibold w-fit ml-auto ">
             <li>
-                <button class="hidden md:block minimal-button ">
-                    <a href="https://www.instagram.com/manuser365/">INSTAGRAM</a>
-                </button>
-                <button class="block md:hidden minimal-button ">
-                    <img src="{{ url_for('static', filename='images/insta.webp') }}" width="30"/>
+                <button class="minimal-button ">
+                    <a href="https://www.instagram.com/manuser365/">
+                        <span class="hidden md:inline-block">INSTAGRAM</span>
+                        <i class="bi bi-instagram inline-block md:hidden text-gray-400"></i>
+                    </a>
                 </button>
             </li>
             <li>
-                <button class="hidden md:block minimal-button">
-                    <a href="https://www.instagram.com/manuser365/">TWITTER</a>
-                </button>
-                <button class="block md:hidden minimal-button ">
-                    <img src="{{ url_for('static', filename='images/twitter.webp') }}" width="30"/>
+                <button class="minimal-button">
+                    <a href="https://www.instagram.com/manuser365/">
+                        <span class="hidden md:inline-block">TWITTER</span>
+                        <i class="bi bi-twitter inline-block md:hidden text-gray-400"></i>
+                    </a>
                 </button>
             </li>
             <li>
-                <button class="hidden md:block minimal-button">
-                    <a href="https://www.linkedin.com/in/manu-serrano-437084249/">TWITTER</a>
-                </button>
-                <button class="block md:hidden minimal-button ">
-                    <img src="{{ url_for('static', filename='images/linkedin.webp') }}" width="30"/>
+                <button class="minimal-button">
+                    <a href="https://www.linkedin.com/in/manu-serrano-437084249/">
+                        <span class="hidden md:inline-block">LINKEDIN</span>
+                        <i class="bi bi-linkedin inline-block md:hidden text-gray-400"></i>
+                    </a>
                 </button>
             </li>
         </ul>

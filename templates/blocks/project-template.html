@@ -5,11 +5,11 @@
             <img src={{ "static/" + proj.image }} class=" h-full w-full object-cover blur-[1px]" alt="">
         </div>
         <div
-            class=" bg-black/50 absolute top-0 tracking-wide left-0 h-full w-full flex flex-col justify-center items-center px-4"
+            class=" bg-black/45 dark:bg-black/60 absolute top-0 tracking-wide left-0 h-full w-full flex flex-col justify-center items-center px-4"
         >
             <h1 class=" text-center text-3xl font-bold mb-2 text-white">{{ proj.Title }}</h1>
             <h5 
-                class=" px-6 text-pretty text-center text-md xs:text-lg md:text-xl tracking-wide text-gray-300"
+                class=" px-6 text-center text-md text-lg text-balance tracking-wide text-gray-300"
             >
                 {{ proj.Description }}
             </h5>
@@ -18,15 +18,15 @@
                 {% for tech in proj.tecnologies %}
                     {% if tech in ["tensorflow"] %}
                         <li class="text-white px-2 py-1 bg-white rounded-full shadow-lg">
-                            <i class="devicon-{{ tech }}-original colored text-xl"></i>
+                            <i class="devicon-{{ tech }}-original plain text-neutral-700 text-xl"></i>
                         </li>
                     {% elif tech in ["autocad"] %}
                         <li class="text-white px-2 py-2 bg-white rounded-full shadow-lg">
-                            <img src="{{ url_for('static', filename='images/icons8-autocad-48.svg') }}" alt="autocad" class="h-[1.25rem]">
+                            <img src="{{ url_for('static', filename='images/icons8-autocad-48.svg') }}" alt="autocad" class="h-[1.25rem] saturate-0">
                         </li>
                     {% else %}
                         <li class="text-white px-2 py-1 bg-white rounded-full shadow-lg">
-                            <i class="devicon-{{ tech | lower }}-plain colored text-xl"></i>
+                            <i class="devicon-{{ tech | lower }}-plain plain text-neutral-700 text-xl"></i>
                         </li>
                     {% endif %}
                 {% endfor %}
