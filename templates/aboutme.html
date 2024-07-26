@@ -2,32 +2,38 @@
 {% block title %} About me {% endblock %}
 
 {% block content %}
-<main style="font-family: Montserrat" class="pb-40 text-gray-700">
-    <div class=" w-full pt-40">
-        <p class=" text-center text-black dark:text-white ">HELLO THERE!</p>
-    </div>
-    <section class=" md:flex hidden -mt-32 section-main h-screen grid-cols-2 space-x-8">
-        <div class=" w-2/4 md:w-4/5 lg:w-2/4  dark:text-gray-300 leading-7">
-            <h1 class=" text-center h2-4xl text-black dark:text-white">Sobre mí</h1>
-            <p class=" text-balance">
-                Soy un estudiante de ingeniería electrónica y automática en la Universidad Miguel Hernández de Elche,
-                con una profunda pasión por la programación y el desarrollo de tecnología. Combino mis estudios
-                académicos con proyectos personales y freelance, explorando desde el desarrollo web hasta la
-                inteligencia artificial y la automatización.
-            </p>
-            <button
-                class="sm-button tracking-widest text-sm px-6 py-4 float-right m-10 text bg-white dark:text-neutral-800 rounded-lg shadow-lg hover:scale-110 transition-transform duration-300 ease-in-out">
-                <a href={{ "curriculum" }} class="uppercase text-sm">
-                    curriculum
-                </a>
-            </button>
+<main style="font-family: Montserrat" class="pb-40 text-gray-700 min-h-screen">
+
+    <section class=" section-main-content md:flex hidden">
+        <div class=" w-full mb-20">
+            <p class=" text-center text-black dark:text-white ">HELLO THERE!</p>
         </div>
-        <div class="h-auto pr-4 w-auto">
-            <img class="h-[400px] rounded-2xl max-w-[133%] md:w-[100%] xl:w-[133%] object-cover bg-cover"
-                src="{{ url_for('static', filename='images/main.jpg') }}" alt="profile image">
+        <div class="grid-cols-2 space-x-8 flex">
+            <div class=" w-2/4 md:w-4/5 lg:w-2/4  dark:text-gray-300 leading-7">
+                <h1 class=" text-center title-article">Sobre mí</h1>
+                <p class=" text-balance">
+                    Soy un estudiante de ingeniería electrónica y automática en la Universidad Miguel Hernández de
+                    Elche,
+                    con una profunda pasión por la programación y el desarrollo de tecnología. Combino mis estudios
+                    académicos con proyectos personales y freelance, explorando desde el desarrollo web hasta la
+                    inteligencia artificial y la automatización.
+                </p>
+                <button class="button-cv">
+                    <a href={{ "curriculum" }} class="uppercase text-sm">
+                        curriculum
+                    </a>
+                </button>
+            </div>
+            <div class="h-auto pr-4 w-auto">
+                <img class="h-[400px] rounded-2xl max-w-[133%] md:w-[100%] xl:w-[133%] object-cover bg-cover"
+                    src="{{ url_for('static', filename='images/main.webp') }}" alt="profile image">
+            </div>
         </div>
     </section>
-    <section class="md:hidden section-main">
+
+
+
+    <section class="md:hidden section-main-content">
         <article class="text-balance px-10">
             <h1 class=" text-center h2-4xl">Manuel Serrano</h1>
             <p class=" dark:text-gray-300">
@@ -36,8 +42,8 @@
                 académicos con proyectos personales y freelance, explorando desde el desarrollo web hasta la
                 inteligencia artificial y la automatización.
             </p>
-            <button class="sm-button tracking-widest text-sm px-6 py-4 m-10 text bg-white dark:text-neutral-800 rounded-lg shadow-lg hover:scale-110 transition-transform duration-300 ease-in-out">
-                <a href={{ "curriculum"}}>
+            <button class="button-cv">
+                <a href={{ "curriculum" }}>
                     curriculum
                 </a>
             </button>
@@ -45,85 +51,142 @@
     </section>
 
 
-    <section class="section-main w-full md:w-3/4 xl:w-2/3 2xl:w-2/4">
-        <article class=" mx-10 w-auto space space-y-8 md:pb-40 dark:text-gray-300 text-pretty">
-            <h1 class=" text-center h2-4xl dark:text-white">Mi carrera</h1>
+    <section class="section-main-content ">
+        <article class="article-card article-card-more mt-20" id="article-1">
+            <h1 class="ml-12 title-article ">Formacion universitaria</h1>
             <p>
-                Mi experiencia no se limita a la programación; he adquirido habilidades en sistemas tipo Linux
-                y en la gestión de servidores, incluyendo el uso de Proxmox entre tros sistemas. Esta experiencia me ha
-                permitido desarrollar una base en sistemas operativos y la administración de infraestructuras
-                de TI.
+                Durante mi tiempo en la Universidad Miguel Hernández de Elche, he adquirido una sólida base en
+                ingeniería electrónica y automática. Mis estudios me han permitido desarrollar habilidades en lenguajes
+                de programación como C, C++, y tecnologías como MATLAB. La formación en la universidad me
+                ha brindado una comprensión profunda de los sistemas electrónicos y automatizados, y cómo aplicar estos
+                conocimientos en proyectos prácticos y de investigación.
             </p>
             <p>
-                Uno de los proyectos más notables en los que he trabajado durante mi tiempo en la universidad ha sido
-                una investigación sobre mejoras en las Inspecciones Técnicas de Vehículos (ITV), específicamente en
-                relación con el protocolo OBD. Este proyecto me permitió explorar la intersección entre la ingeniería
-                automotriz y la tecnología de la información, ampliando mi comprensión de ambos campos.
+                Uno de los proyectos más notables en los que he trabajado ha sido una investigación sobre mejoras en las
+                Inspecciones Técnicas de Vehículos (ITV), específicamente en relación con el protocolo OBD. Utilizando
+                Python, este proyecto me permitió explorar la intersección entre la ingeniería automotriz y la
+                tecnología de la información, ampliando mi comprensión de ambos campos.
             </p>
             <p>
-                Además, he contribuido significativamente al desarrollo de software de corrección CAD, donde he aplicado
-                mis habilidades en programación y diseño asistido por computadora para mejorar los procesos y la
+                Además, he contribuido significativamente al desarrollo de software de corrección CAD, aplicando mis
+                habilidades en programación con C# y diseño asistido por computadora para mejorar los procesos y la
                 eficiencia.
+            </p>
+        </article>
+        <button id="article-1-button" class="article-moreinfo" onclick="{
+                let article1 = document.getElementById('article-1');
+                let button = document.getElementById('article-1-button');
+                if (article1.classList.contains('article-card-more')) {
+                    article1.classList.remove('article-card-more');
+                    button.innerHTML = 'Menos información';
+                } else {
+                    article1.classList.add('article-card-more');
+                    button.innerHTML = 'Más información';
+                }
+            }">
+            Más información
+        </button>
+        <article class="article-card article-card-more mt-20" id="article-2">
+            <h1 class="ml-12 title-article">Autónomo</h1>
             <p>
-                En el ámbito de mis proyectos personales, he desarrollado un framework de backend en C++ sin librerías,
-                un desafío que me ha permitido profundizar en mis habilidades de programación y comprensión de sistemas
-                complejos. Este proyecto incluye características como soporte para Jinja, HTTPS y bases de datos.
+                En mi tiempo libre, he trabajado en diversos proyectos que han ampliado mis habilidades técnicas y mi
+                comprensión de sistemas complejos. Entre estos proyectos, destaca el desarrollo de un framework de
+                backend en C++ sin librerías, con soporte para Jinja, HTTPS y bases de datos.
+            </p>
+            <p>
+                Otro proyecto notable es Minecraft-console, una herramienta para gestionar servidores de Minecraft desde
+                la consola. Este proyecto, desarrollado con React, TypeScript, Next.js los cuales he utilizado en más
+                projectos como la página web para exponer el arte de mi abuelo combinando mi pasión por la tecnología
+                con el deseo de compartir su legado artístico. Ademas a veces ha requerido el uso de Python para el
+                backend, que me ha proporcionado una valiosa experiencia en la integración de front-end y back-end, así
+                como en la gestión de infraestructuras complejas.
+            </p>
+            <p>
+                He aprendido a utilizar Git para el control de versiones, asegurando una gestión eficiente y
+                colaborativa del código. También he desarrollado habilidades en SQL para gestionar bases de datos de
+                manera efectiva.
+            </p>
+            <p>
+                Mi compromiso con el aprendizaje autodidacta me ha llevado a dominar tecnologías como Docker para la
+                virtualización y Bash para la automatización de tareas. Me mantengo siempre actualizado con las últimas
+                tendencias y herramientas en el campo de la programación y el desarrollo de software.
+            </p>
+        </article>
+        <button id="article-2-button" class="article-moreinfo" onclick="{
+            let article2 = document.getElementById('article-2');
+            let button = document.getElementById('article-2-button');
+            if (article2.classList.contains('article-card-more')) {
+                article2.classList.remove('article-card-more');
+                button.innerHTML = 'Menos información';
+            } else {
+                article2.classList.add('article-card-more');
+                button.innerHTML = 'Más información';
+            }
+        }">
+            Más información
+        </button>
+        <article class="article-card mt-20" id="article-3">
+            <h1 class="ml-12 title-article">Pasatiempos</h1>
+            <p>
+                Fuera del ámbito académico y profesional, disfruto de la fotografía paisajística y de ir a la montaña.
+                El cine, la música y la literatura también forman parte de mis pasiones, especialmente las novelas que
+                narran viajes. Estos hobbies no solo me proporcionan un equilibrio, sino que también inspiran mi
+                creatividad y enfoque en mis proyectos tecnológicos.
+            </p>
 
-            </p>
-            <p>
-                He explorado el campo de la inteligencia artificial con 'mcIA', un proyecto donde enseño a una IA a
-                jugar Minecraft, y hasta proyectos de automatización doméstica en Python o arduino, mis repositorios
-                demuestran mi compromiso continuo con el aprendizaje y la innovación en el campo de la ingeniería y la
-                tecnología.
-            </p>
         </article>
     </section>
 
-    <section class="md:flex hidden section-main grid-2col-10">
-        <article class=" w-2/5 text-left mr-20">
-            <h1 class="h2-4xl">Mi carrera</h1>
+    <div class="section-main-content border-b border-neutral-500 mt-20 mb-10 hidden md:block "></div>
+
+
+    <section class="md:flex hidden section-main-content ">
+        <article class=" w-2/5 text-left mr-10">
+            <h1 class="title-article">Mi carrera</h1>
             <p class=" text-gray-500 dark:text-gray-300 text-pretty">
                 Actualmente estoy estudiando en la universidad miguel hernandez de elche a tiempo completo
-                aunque tambien apendo por mi cuenta programacion entre otras cosas :D
+                aunque tambien aprendo por mi cuenta programacion entre otras cosas :D
             </p>
         </article>
-        <ul class="section-main grid-2col-8 text-center">
+        <ul class="tech-card text-center">
             <div class="pt-10">
-                <li class="h2-gray-4xl">Python</li>
-                <li class="h2-gray-4xl">C</li>
-                <li class="h2-gray-4xl">C++</li>
+                <li>Python</li>
+                <li>C</li>
+                <li>C++</li>
             </div>
             <div class="pt-10">
-                <li class="h2-gray-4xl">Docker</li>
-                <li class="h2-gray-4xl">C#</li>
-                <li class="h2-gray-4xl">Js</li>
-                <li class="h2-gray-4xl">Bash</li>
+                <li>Docker</li>
+                <li>C#</li>
+                <li>Js</li>
+                <li>Bash</li>
             </div>
             <div class="pt-10">
-                <li class="h2-gray-4xl">React</li>
-                <li class="h2-gray-4xl">Arduino</li>
+                <li>React</li>
+                <li>Arduino</li>
 
             </div>
         </ul>
     </section>
-    <section class="md:hidden block section-main w-5/6 mt-20">
+
+    <!-- =============================================================== -->
+    <section class="md:hidden block section-main-content w-5/6 mt-20">
         <article class="text-balance">
-            <h1 class="h2-4xl text-center">Mi carrera</h1>
+            <h1 class="title-article text-center">Mi carrera</h1>
             <p class=" text-gray-700 dark:text-gray-300">
                 Actualmente estoy estudiando en la universidad miguel hernandez de elche a tiempo completo
                 aunque tambien estudio por mi cuenta programacion entre otras cosas
             </p>
         </article>
-        <ul class="pt-20 text-center sm:section-main sm:grid-2col-8 mx-auto w-fit list-none">
-            <li class="h2-gray-4xl">Python</li>
-            <li class="h2-gray-4xl">C</li>
-            <li class="h2-gray-4xl">C++</li>
-            <li class="h2-gray-4xl">Docker</li>
-            <li class="h2-gray-4xl">C#</li>
-            <li class="h2-gray-4xl">Js</li>
-            <li class="h2-gray-4xl">Bash</li>
-            <li class="h2-gray-4xl">React</li>
-            <li class="h2-gray-4xl">Arduino</li>
+        <ul class="pt-20 text-center sm:section-main-content sm:grid-2col-8 mx-auto w-fit list-none dark:text-white space-y-3 text-3xl">
+            <li>Python</li>
+            <li>C</li>
+            <li>C++</li>
+            <li>Docker</li>
+            <li>C#</li>
+            <li>Js</li>
+            <li>Bash</li>
+            <li>React</li>
+            <li>Arduino</li>
         </ul>
     </section>
 </main>

@@ -1,38 +1,28 @@
-{% block content %}
+
 <li id="{{ proj.Title }}" class=" w-full">
-    <div class="relative aspect-square max-w-96 rounded-2xl overflow-hidden text-balance">
-        <div class="absolute top-0 left-0 h-full w-full ">
+    <div class="project-card">
             <img 
                 src={{ "static/" + proj.image }} 
-                class=" h-full w-full object-cover blur-[1px]" 
+                class="" 
                 alt="{{ proj.Title + proj.Description }}"
                 title="{{ proj.Title }}"
             >
-        </div>
-        <div
-            class=" bg-black/50 dark:bg-black/60 absolute top-0 tracking-wide left-0 h-full w-full flex flex-col justify-center items-center px-4"
-        >
-            <h1 
-                class=" text-xl md:text-3xl font-bold mb-2 text-white absolute top-0 left-0 w-full py-6 md:my-6 text-center"
-            >
-                {{ proj.Title }}
-            </h1>
+        <div>
+            <h1> {{ proj.Title }} </h1>
                 
-            <p class=" ml-14 text-base md:text-lg  text-balance tracking-wide text-gray-300">
-                {{ proj.Description }}
-            </p>
-            <ul class="absolute left-0 bottom-0 px-4 py-4 space-y-2">
+            <p> {{ proj.Description }} </p>
+            <ul class="project-tech">
                 {% for tech in proj.tecnologies %}
                     {% if tech in ["tensorflow"] %}
-                        <li class="text-white px-2 py-1 bg-white rounded-full shadow-lg">
+                        <li class="px-2 py-1">
                             <i class="devicon-{{ tech }}-original plain text-neutral-700 text-xl"></i>
                         </li>
                     {% elif tech in ["autocad"] %}
-                        <li class="text-white px-2 py-2 bg-white rounded-full shadow-lg">
+                        <li class=" px-2 py-2 ">
                             <img src="{{ url_for('static', filename='images/icons8-autocad-48.svg') }}" alt="autocad" class="h-[1.25rem] saturate-0">
                         </li>
                     {% else %}
-                        <li class="text-white px-2 py-1 bg-white rounded-full shadow-lg">
+                        <li class=" px-2 py-1 ">
                             <i class="devicon-{{ tech | lower }}-plain plain text-neutral-700 text-xl"></i>
                         </li>
                     {% endif %}
@@ -49,7 +39,7 @@
                         </p>
                     {% endif %}
                     <button 
-                        class="button-projects text-base tracking-wider float-right absolute right-8 bottom-8 "
+                        class="button-projects  float-right absolute right-8 bottom-8 "
                     >
                         <a href="{{ proj.url[0] }}" class="">{{proj.url[1] }}</a>
                     </button>
@@ -58,4 +48,3 @@
         </div>
     </div>
 </li>
-{% endblock content %}

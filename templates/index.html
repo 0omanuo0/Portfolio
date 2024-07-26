@@ -5,14 +5,15 @@
 
     <main style="font-family: Montserrat" class="block md:none space-y-20 pb-40 text-black">
         <div>
+            <!-- =============================================== -->
             <section 
-                class=" md:hidden grid section-main pt-10 h-screen items-center " 
+                class="main-phone" 
                 style="
                         background-size: cover;
                         background-position-x: 660px;
                         background-repeat: no-repeat;
                         background-position: center;
-                        background-image: url({{ url_for('static', filename='images/main.jpg') }});
+                        background-image: url({{ url_for('static', filename='images/main.webp') }});
                     "
             >
                 <div class="text-center w-full bg-slate-50 opacity-75 px-10 py-8">
@@ -20,79 +21,78 @@
                     <div class="  text-gray-500 mb-6">Probably an engineer and a developer :D</div>
                 </div>
             </section>
+<!-- =============================================== -->
+
+
+
             <section class=" md:flex hidden items-center pt-10 justify-center px-20 xl:px-44 space-x-20 h-[70vh] lg:h-screen grid-cols-2 w-full">
                 <div class=" text-right ">
                     <h1 class="dark:text-white py-5 text-5xl ">Manuel Serrano</h1>
                     <div class=" dark:text-gray-300 text-gray-500">Probably an engineer and a developer :D</div>
                 </div>
-                <div class=" relative h-[300px] lg:h-[400px] aspect-[4/3] ">
+                <div class="main-img">
                     <img 
-                        class=" rounded-2xl 2xl:max-w-[133%] absolute object-cover h-full w-full blur-3xl shadow-2xl shadow-neutral-500" 
                         width="1080"
-                        src="{{ url_for('static', filename='images/main.jpg') }}" 
+                        src="{{ url_for('static', filename='images/main.webp') }}" 
                         alt="blurred image of the profile image"
                     >
                     <img 
-                        class=" rounded-2xl 2xl:max-w-[133%] absolute object-cover h-full w-full" 
                         width="1080"
-                        src="{{ url_for('static', filename='images/main.jpg') }}" 
+                        src="{{ url_for('static', filename='images/main.webp') }}" 
                         alt="profile image"
                     >
                 </div>
             </section>
         </div>
 
-        <section class=" section-main w-full md:w-4/5">
-            <h1 class="dark:text-white text-center leading-10 py-5 text-5xl ">MIS PROJECTOS </h1>
-            <p class="md:hidden block dark:text-gray-300 text-gray-500 text-sm text-center">Desliza para ver mas!</p>
-            <div class="flex items-center">
-                <button id="left" onclick="carr(-1)" class="hidden md:block button-carroussel mr-10 mt-[-100px]"><</button>
-                <div 
-                    id="panel_carrousel" 
-                    class="duration-100 flex m-auto w-full pt-5 md:w-3/4 md:pt-20 h-auto place-content-center"
-                >
+        <section class="section-main-content w-full md:w-4/5" id="projects">
+            <h1 >MIS PROJECTOS </h1>
+            <p >Desliza para ver mas!</p>
+            <div class="projects-carroussel">
+                <button id="left" onclick="carr(-1)" ><</button>
+                <div id="panel_carrousel" >
                     {% for card in range(projects|length) %}
                         {% with proj=projects[card], id1=card %}
                             {% include "blocks/project-carrousel.html" %}
                         {% endwith %}
                     {% endfor %}
                 </div>
-                <button id="right" onclick="carr(1)" class="hidden md:block button-carroussel ml-10 mt-[-100px]">></button>
+                <button id="right" onclick="carr(1)" >></button>
             </div>
         </section>
 
-        <section class="section-main w-5/6 2xl:w-3/4 text-balance">
-            <div class=" text-center md:text-left pb-4 border-b-2 border-neutral-500 dark:border-neutral-500 mb-4">
-                <h1 class="dark:text-white leading-10 py-5 text-4xl">Mi experiencia </h1>
-                <p class="dark:text-gray-300 text-gray-500 px-6 mx-auto italic">
+        <section class="section-main-content w-5/6 2xl:w-3/4 text-balance">
+            <div class="experience-title">
+                <h1>Mi experiencia </h1>
+                <p >
                     Aunque no sea mucha, aquí iré poniendo mi experiencia laboral.
                 </p>
             </div>
-            <ul class=" flex flex-col gap-10 md:grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-between  xs:max-w-[50vw] md:max-w-fit">
-                <li class=" items-center space-y-4 ">
-                    <h2 class=" h2-xl uppercase">Electrofret</h2>
-                    <p class=" dark:text-gray-300 text-gray-500">Reparacion e instalacion de equipos frío industrial</p>
-                    <div class=" text-xs dark:text-gray-300 text-gray-500">Mayo 2018 - Oct 2018</div>
+            <ul class="experience-list">
+                <li >
+                    <h2 >Electrofret</h2>
+                    <p >Reparacion e instalacion de equipos frío industrial</p>
+                    <div >Mayo 2018 - Oct 2018</div>
                 </li>
-                <li class=" items-center space-y-4 ">
-                    <h2 class=" h2-xl w-max uppercase">CAD en UMH</h2>
-                    <p class=" dark:text-gray-300 text-gray-500">Web developer & C# autocad Objectarx engineer</p>
-                    <div class="text-xs dark:text-gray-300 text-gray-500">Sept 2022 - Ene 2023</div>
+                <li >
+                    <h2 class=" w-max">CAD en UMH</h2>
+                    <p >Web developer & C# autocad Objectarx engineer</p>
+                    <div >Sept 2022 - Ene 2023</div>
                 </li>
-                <li class=" items-center space-y-4 ">
-                    <h2 class=" h2-xl uppercase">Investigacion</h2>
-                    <p class=" dark:text-gray-300 text-gray-500">Investigacion sobre mejoras en la ITV en relacion con el protocolo OBD</p>
-                    <div class="text-xs dark:text-gray-300 text-gray-500">Jun 2023 - Ene 2024</div>
+                <li >
+                    <h2 >Investigacion</h2>
+                    <p >Investigacion sobre mejoras en la ITV en relacion con el protocolo OBD</p>
+                    <div >Jun 2023 - Ene 2024</div>
                 </li>
-                <li class=" items-center space-y-4 ">
-                    <h2 class=" h2-xl uppercase">Investigacion</h2>
-                    <p class=" dark:text-gray-300 text-gray-500">Investigacion y desarroyo de un prototipo de escaner para pneumaticos</p>
-                    <div class="text-xs dark:text-gray-300 text-gray-500">Abr 2024 - actual</div>
+                <li >
+                    <h2 >Investigacion</h2>
+                    <p >Investigacion y desarroyo de un prototipo de escaner para pneumaticos</p>
+                    <div >Abr 2024 - actual</div>
                 </li>
             </ul>
         </section>
 
-        <section class=" form-mail">
+        <section class="form-mail">
             <form class=" p-10" action="{{ url_for('submit') }}" method="post">
                 <h1 class="dark:text-white leading-10 py-3 text-3xl">Quieres contactarme? </h1>
                 <p class="dark:text-gray-300 text-gray-500 ml-8 italic">Mándame un correo! ♥</p>

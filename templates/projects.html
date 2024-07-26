@@ -5,7 +5,7 @@
 
 <main style="font-family: Montserrat" class="space-y-8 pb-40 pt-32 ">
     <section class=" px-10 ">
-        <ul class="md:mx-auto md:container list-none flex flex-col justify-center items-center md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:grid gap-10">
+        <ul class="projects-list">
             {% for x in projects %}
                 {% with proj=x %}
                     {% include "blocks/project-template.html" %}
