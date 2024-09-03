@@ -6,6 +6,8 @@ import subprocess
 import os
 import re
 
+from config import HIGH_RISK_WORDS, MODERATE_RISK_WORDS, LOW_RISK_WORDS, CURRENCY_WORDS, ALLOWED_LINKS
+
 
 app = Flask(__name__)
 # generate a secret key with os.urandom(24) and store it in a file
@@ -48,7 +50,7 @@ def home():
 @sm.include()
 @app.route("/curriculum")
 def curriculum():
-    return send_file("content/curriculum4.pdf")
+    return send_file("content/curriculumManuelSerrano.pdf")
 
 @app.route("/sitemap.xml")
 def r_sitemap():
@@ -59,13 +61,38 @@ def page_not_found(e):
     return render_template('page-404.html'), 404
 
 
-WHITELIST_COUNTRIES = ["FR", "ES", "US", "UK", "DE", "IT", "NL", "BE", "PT"]
-ALLOWED_LINKS = ["github", "linkedin", "twitter", "facebook"]
-BLACKLIST_WORDS = ["bitcoin", "earn", "money", "free", "click", "here", "subscribe", "buy", "sell", "trade", "crypto", "currency", "investment", "invest", "profit", "earnings", "earn", "cash", "dollar", "euro", "pound", "yen", "yuan", "rupee", "peso", "real", "ruble", "franc", "lira", "dinar", "dirham", "won", "krona", "krone", "kroner",
-                     "bitcoin", "ethereum", "ripple", "litecoin", "monero", "dash", "zcash", "dogecoin", "tron", "stellar", "cardano", "tezos", "chainlink", "polkadot", "uniswap", "aave", "maker", "compound", "yearn", "sushi", "curve", "balancer", "synthetix", "cream", "yfi", "yfii", "yfiii",
-                        "buy", "sell", "trade", "crypto", "currency", "investment", "invest", "profit", "earnings", "earn", "cash", "dollar", "euro", "pound", "yen", "yuan", "rupee", "peso", "real", "ruble", "franc", "lira", "dinar", "dirham", "won", "krona", "krone", "kroner",
-]
 
+
+# Filtrar correos en función de la presencia y combinación de palabras
+def is_spam(email_text):
+    email_text_lower = email_text.lower()
+
+    # Si hay alguna palabra de alto riesgo, se marca directamente como spam
+    if any(word in email_text_lower for word in HIGH_RISK_WORDS):
+        return True
+
+    # Si hay varias palabras de riesgo moderado juntas, se marca como spam
+    moderate_risk_count = sum(word in email_text_lower for word in MODERATE_RISK_WORDS)
+    if moderate_risk_count >= 3:
+        return True
+
+    # Si hay palabras de bajo riesgo junto con palabras de riesgo moderado, se marca como spam
+    if any(word in email_text_lower for word in LOW_RISK_WORDS) and moderate_risk_count >= 1:
+        return True
+
+    # Si hay palabras de divisas junto con palabras de alto o moderado riesgo, se marca como spam
+    if any(word in email_text_lower for word in CURRENCY_WORDS) and (moderate_risk_count >= 1 or any(word in email_text_lower for word in HIGH_RISK_WORDS)):
+        return True
+
+    return False
+
+
+def is_valid_link(message):
+    links = re.findall(r'(https?://[^\s]+)', message)
+    for link in links:
+        if not any([allowed_link in link for allowed_link in ALLOWED_LINKS]):
+            return False
+    return True
 
 
 @app.route('/submit', methods=['POST'])
@@ -73,7 +100,7 @@ def submit():
     name, email, message = request.form['name'], request.form['email'], request.form['message']
     
     if (not name or not email or not message):
-        print("error")
+        print("Error, empty fields")
         return redirect("/")
     
     #filter out spam check 
@@ -81,20 +108,14 @@ def submit():
     # 2. if contains words like: "bitcoin", "earn"...
     # 3. if contains links that are not from github, linkedin, etc
     
-    
-    
-    if any([word in message for word in BLACKLIST_WORDS]):
-        print("Blacklisted word")
+    if is_spam(message):
+        print("Spam detected")
         return redirect("/")
-
-    # find links with regex:
- 
-    links = re.findall(r'(https?://[^\s]+)', message)
-    for link in links:
-        if not any([allowed_link in link for allowed_link in ALLOWED_LINKS]):
-            print("Not allowed link")
-            return redirect("/")
     
+    # find links with regex:
+    if not is_valid_link(message):
+        print("Not allowed link")
+        return redirect("/")
     
     
     msg = Message('From {}'.format(email), 
@@ -110,7 +131,7 @@ def subprocessNPX(debug=False):
     tailwindcss = subprocess.Popen(tailwindcss_command, stdin=subprocess.PIPE, shell=True) if debug else None
 
 if __name__ == '__main__':
-    debug = False
+    debug = True
     subprocessNPX(debug=debug)
     if not debug:
         context = ('secrets/fullchain.pem', 'secrets/privkey.pem')#certificate and key files host='manu365.dev'
