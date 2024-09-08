@@ -5,25 +5,34 @@ shinyElement.addEventListener("mouseenter", () => {
     shinyElement.classList.remove("mouse-leave");
 });
 
-shinyElement.addEventListener("mousemove", (e) => {
+const updateShinePosition = (e) => {
     const { x, y } = shinyElement.getBoundingClientRect();
     shinyElement.style.setProperty("--x", e.clientX - x);
     shinyElement.style.setProperty("--y", e.clientY - y);
-    // if is near to an image dont show the shine
+
+    // Si el cursor está sobre una imagen, esconder el brillo
     if (e.target.tagName === "IMG") {
         shinyElement.classList.add("mouse-leave");
-    }
+    } 
     else {
         shinyElement.classList.remove("mouse-leave");
     }
-    // ALSO IF HOVER ABOVE AN ELEMENT WITH THE ID = "TITLE
-    if(e.target.tagName === "INPUT" || e.target.tagName === "BUTTON" || e.target.getAttribute("key") === "title" || e.target.tagName === "TEXTAREA") {
+
+    // Si el cursor está sobre un INPUT, BUTTON, o un elemento con id "title", aumentar el brillo
+    if (e.target.tagName === "INPUT" || e.target.tagName === "BUTTON" || e.target.getAttribute("key") === "title" || e.target.tagName === "TEXTAREA") {
         shinyElement.style.setProperty("--scale-s", 1.5);
-    }
+    } 
     else {
         shinyElement.style.setProperty("--scale-s", 1);
     }
-    
+};
+// Listener para el movimiento del ratón
+shinyElement.addEventListener("mousemove", (e) => {
+    // if prefers-reduced-motion is enabled, don't update the position
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+    }
+    updateShinePosition(e);
 });
 
 shinyElement.addEventListener("mouseleave", () => {
