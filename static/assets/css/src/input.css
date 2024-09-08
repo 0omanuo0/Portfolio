@@ -9,7 +9,7 @@
     }
 
     .section-main-content:first-child {
-        @apply h-screen flex-col items-center justify-center;
+        @apply h-screen items-center ;
     }
 
     @screen md {
@@ -51,32 +51,135 @@
         @apply dark:focus:border-neutral-600 dark:focus:bg-neutral-700/60 dark:focus:ring-neutral-600;
         @apply hover:border-neutral-600;
         @apply dark:hover:bg-neutral-700/60;
+        @apply placeholder-neutral-500 dark:placeholder-neutral-400;
     }
 
     .submit-button {
         @apply bg-black mt-6 text-white py-4 px-8 text-xs tracking-widest rounded-md;
         @apply dark:bg-zinc-200 mt-6 dark:text-black;
         @apply cursor-pointer;
-        @apply hover:animate-wiggle;
+        @apply hover:scale-110 transition-transform duration-300 ease-in-out;
     }
 
 
     /* ================ INDEX ================ */
-    .main-phone{
-        @apply md:hidden grid section-main-content pt-10 h-screen items-center;
-    }   
+    /* Movil */
+    .main-cover {
+        @apply h-screen;
+        background-size: cover;
+        background-position-x: 660px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: var(--bg);
+    }
+
+    .title-cover {
+        @apply text-center bg-slate-50 opacity-75;
+    }
+
+    .title-cover h1 {
+        @apply py-5 text-5xl text-center text-black;
+    }
+
+    .title-cover h3 {
+        @apply text-gray-500;
+    }
+
+
+    
+    .main-cover {
+        background-image: url('/static/images/main.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+    }
+    @media (min-width: 768px) {
+        .main-cover {
+
+            @apply h-screen  ;
+        background-image: none;  
+        background-color: transparent;
+        }
+    }
+    .main-cover>div{
+        @apply mt-10 md:h-fit md:flex mx-auto flex-row items-center justify-center space-x-20 lg:h-screen md:grid-cols-2;
+        @apply flex h-full;
+    }
+
+    .title-cover {
+        background-color: transparent; 
+        @apply bg-white opacity-85 px-5 py-10 w-full md:text-right;
+        @apply md:bg-transparent md:px-0 md:py-0 md:w-fit;
+    }
+
+    .title-cover h1 {
+        @apply py-5 text-5xl md:dark:text-white ;
+        
+    }
+
+    .title-cover h3 {
+        @apply md:dark:text-gray-300 text-gray-500 ;
+    }
 
     .main-img {
-        @apply relative h-[300px] lg:h-[400px] aspect-[4/3];
+        @apply relative h-[300px] lg:h-[400px] aspect-[4/3] md:block hidden;
+        
     }
-
-    .main-img>img:first-child {
-        @apply rounded-2xl 2xl:max-w-[133%] absolute object-cover h-full w-full blur-3xl shadow-2xl shadow-neutral-500;
+    .main-img::before {
+        background-image: url('/static/images/main.webp');
+        background-size: cover;
+        background-position: center;
+        content: '';
+        z-index: 100;
+        @apply rounded-2xl 2xl:max-w-[133%] absolute object-cover h-full w-full left-0 blur-3xl shadow-2xl shadow-neutral-500;
     }
-
     .main-img>img {
         @apply rounded-2xl 2xl:max-w-[133%] absolute object-cover h-full w-full;
+        z-index: 100;
     }
+
+        
+    .shiny {
+        --scale-s: 1;
+    }
+
+    .shiny::after {
+        content: "";
+        position: absolute;
+        top: calc(var(--y, 0) * 1px + 20px);
+        left: calc(var(--x, 0) * 1px - 25px);
+        width: 50px;
+        height: 50px;
+        background: white;
+        border-radius: 50000px;
+        opacity: 0;
+        pointer-events: none; /* Asegura que el pseudo-elemento no interfiera con los eventos del ratón */
+        transition: scale 0.4s, opacity 0.5s, top 0.1s, left 0.1s; /* Añadido para hacer la transición más fluida */
+        /* invertir el fondo */
+        mix-blend-mode: difference;
+        z-index: 10;
+    }
+
+    .shiny:hover::after {
+        opacity: 1;
+        scale: var(--scale-s, 1);
+    }
+
+    .shiny.mouse-leave::after {
+        opacity: 0;
+        transition: opacity 0.5s ease-out; /* Hacer que el brillo desaparezca suavemente */
+    }
+    .shiny::active::after {
+        opacity: 0;
+    }
+    
+
+
+
+    
+
+    
 
     #projects>h1 {
         @apply dark:text-white text-center leading-10 py-5 text-5xl;
@@ -199,6 +302,71 @@
 
     /* ================ ABOUT ME ================ */
 
+    .aboutme-main-cover {
+        background-image: var(--bg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        @apply md:w-3/4 mx-auto;
+    }
+    /* 3xl media */
+    @media ( min-width: 2400px) {
+        .aboutme-main-cover {
+            @apply w-1/2 ;
+        }
+    }
+    @media (min-width: 768px) {
+        .aboutme-main-cover {
+
+            @apply h-screen ;
+            background-image: none;  
+            background-color: transparent;
+        }
+    }
+    .aboutme-main-cover>div{
+        position: absolute;
+        @apply top-20 left-0 w-full hidden md:block;
+    }
+    .aboutme-main-cover>article{
+        @apply mt-10 md:h-fit md:flex mx-auto flex-row items-center justify-center space-x-20 lg:h-screen md:grid-cols-2;
+        @apply flex h-full md:mx-5 2xl:mx-40;
+
+        @apply h-screen md:h-full ;
+    }
+
+    .aboutme-title-cover {
+        background-color: transparent; 
+        @apply bg-white/85 px-6 md:px-5 py-10 w-full md:max-w-96 md:min-w-60;
+        @apply md:bg-transparent md:px-0 md:py-0 md:w-fit;
+    }
+
+    .aboutme-title-cover h1 {
+        @apply py-5 text-5xl md:dark:text-white ;
+        
+    }
+
+    .aboutme-title-cover h3 {
+        @apply md:dark:text-gray-300 text-gray-500 ;
+    }
+
+    .aboutme-main-img {
+        @apply relative h-[300px] lg:h-[400px] aspect-[4/3] md:block hidden;
+    }
+    .aboutme-main-img::before {
+        background-image: url('/static/images/main.webp');
+        background-size: cover;
+        background-position: center;
+        content: '';
+        @apply rounded-2xl 2xl:max-w-[133%] absolute object-cover h-full w-full left-0 blur-3xl shadow-2xl shadow-neutral-500;
+    }
+    .aboutme-main-img>img {
+        @apply rounded-2xl 2xl:max-w-[133%] absolute object-cover h-full w-full;
+    }
+
+
+
+
     .article-card {
         @apply mx-10 w-auto space-y-8 dark:text-gray-300 text-pretty;
     }
@@ -227,7 +395,7 @@
 
     .button-cv {
         @apply tracking-widest text-sm;
-        @apply px-6 py-4 m-10;
+        @apply px-6 py-4;
         @apply bg-white dark:text-neutral-800 rounded-lg shadow-lg;
         @apply hover:scale-110 transition-transform duration-300 ease-in-out;
     }

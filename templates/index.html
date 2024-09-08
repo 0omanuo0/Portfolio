@@ -3,53 +3,35 @@
 
 {% block content %}
 
-    <main style="font-family: Montserrat" class="block md:none space-y-20 pb-40 text-black">
-        <div>
-            <!-- =============================================== -->
-            <section 
-                class="main-phone" 
-                style="
-                        background-size: cover;
-                        background-position-x: 660px;
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        background-image: url({{ url_for('static', filename='images/main.webp') }});
-                    "
-            >
-                <div class="text-center w-full bg-slate-50 opacity-75 px-10 py-8">
-                    <h1 class=" py-5 text-5xl text-center text-black ">Manuel Serrano</h1>
-                    <div class="  text-gray-500 mb-6">Probably an engineer and a developer :D</div>
+    <main style="font-family: Montserrat" class="shiny block md:none space-y-20 pb-40 text-black">
+        <section 
+            class="main-cover"
+            style="--bg: url({{ url_for('static', filename='images/main.webp') }});"
+        >
+            <div class="">
+                <div class="title-cover">
+                    <h1 key="title">Manuel Serrano</h1>
+                    <h3 key="title">Probably an engineer and a developer :D</h3>
                 </div>
-            </section>
-<!-- =============================================== -->
-
-
-
-            <section class=" md:flex hidden items-center pt-10 justify-center px-20 xl:px-44 space-x-20 h-[70vh] lg:h-screen grid-cols-2 w-full">
-                <div class=" text-right ">
-                    <h1 class="dark:text-white py-5 text-5xl ">Manuel Serrano</h1>
-                    <div class=" dark:text-gray-300 text-gray-500">Probably an engineer and a developer :D</div>
-                </div>
-                <div class="main-img">
-                    <img 
-                        width="1080"
-                        src="{{ url_for('static', filename='images/main.webp') }}" 
-                        alt="blurred image of the profile image"
-                    >
-                    <img 
+                <div class="main-img  ">
+                    <img
+                    onclick="window.location.href='/aboutme'"
                         width="1080"
                         src="{{ url_for('static', filename='images/main.webp') }}" 
                         alt="profile image"
                     >
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
+        
+
+
 
         <section class="section-main-content w-full md:w-4/5" id="projects">
-            <h1 >MIS PROJECTOS </h1>
+            <h1 key="title">MIS PROJECTOS </h1>
             <p >Desliza para ver mas!</p>
             <div class="projects-carroussel">
-                <button id="left" onclick="carr(-1)" ><</button>
+                <button id="left" onclick="carr(-1)" >&lt;</button>
                 <div id="panel_carrousel" >
                     {% for card in range(projects|length) %}
                         {% with proj=projects[card], id1=card %}
@@ -57,14 +39,14 @@
                         {% endwith %}
                     {% endfor %}
                 </div>
-                <button id="right" onclick="carr(1)" >></button>
+                <button id="right" onclick="carr(1)" >&gt;</button>
             </div>
         </section>
 
-        <section class="section-main-content w-5/6 2xl:w-3/4 text-balance">
+        <section class="section-main-content first:flex-col w-5/6 2xl:w-3/4 text-balance">
             <div class="experience-title">
-                <h1>Mi experiencia </h1>
-                <p >
+                <h1 key="title">Mi experiencia </h1>
+                <p  key="title">
                     Aunque no sea mucha, aquí iré poniendo mi experiencia laboral.
                 </p>
             </div>
@@ -91,6 +73,8 @@
                 </li>
             </ul>
         </section>
+
+        
 
         <section class="form-mail">
             <form class=" p-10" action="{{ url_for('submit') }}" method="post">
@@ -119,7 +103,7 @@
     </main>
 
     <script type="text/javascript">
-        var cards = {{ (projects|length)|safe }};
+        var cards = parseInt("{{ (projects|length)|safe }}");
     </script>
     <script src="{{ url_for('static', filename='assets/js/carr.js') }}"></script>
 {% endblock content %}
