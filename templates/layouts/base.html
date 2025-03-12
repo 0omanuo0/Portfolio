@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Manu's Portfolio, a place where you can find all my projects and information about me">
-    <meta name="keywords" content="Manuel Serrano Blanco, Manuel Serrano, Manu, Portfolio, Projects, Web Developer, Python, Flask, HTML, CSS, JavaScript">
+    <meta name="description"
+        content="Manu's Portfolio, a place where you can find all my projects and information about me">
+    <meta name="keywords"
+        content="Manuel Serrano Blanco, Manuel Serrano, Manu, Portfolio, Projects, Web Developer, Python, Flask, HTML, CSS, JavaScript">
     <meta name="author" content="Manuel Serrano Blanco">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="color-scheme" content="dark light">
@@ -15,7 +17,8 @@
 
     <!-- opengraph -->
     <meta property="og:title" content="Manuel Serrano Blanco Portfolio">
-    <meta property="og:description" content="Manu's Portfolio, a place where you can find all my projects and information about me">
+    <meta property="og:description"
+        content="Manu's Portfolio, a place where you can find all my projects and information about me">
     <meta property="og:image" content="https://manu365.dev/static/images/main.webp">
     <meta property="og:url" content="https://manu365.dev">
     <meta property="og:type" content="website">
@@ -27,86 +30,222 @@
     <meta property="locality" content="Elche">
     <meta property="region" content="Alicante">
     <meta property="country-name" content="Spain">
-    
+
 
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-          
-    <link 
-        rel="stylesheet"
+
+    <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
-        media="all"
-    >
+        media="all">
     <link rel="preload" href="{{ url_for('static', filename='images/main.webp') }}" as="image">
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/dist/output.css') }}">
     <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/main.scss') }}"> -->
     <title>Manu - {% block title %}{% endblock %} | Portfolio</title>
 
+    <style>
+        /* Estilos básicos para el elemento de carga */
+        #loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        /* Tema claro */
+        #loader.light {
+            background-color: #f3f3f3;
+            color: #000;
+        }
+
+        /* Tema oscuro */
+        #loader.dark {
+            background-color: #000;
+            color: #fff;
+        }
+
+        #loader.hidden {
+            display: none;
+        }
+
+        /* Estilos de la página */
+        body {
+            visibility: hidden;
+        }
+
+        body.loaded {
+            visibility: visible;
+        }
+
+
+        .bg-gradient {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            background-blend-mode: normal;
+
+            /* Transicion de color de fondo */
+            transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            -o-transition: all 0.5s;
+
+            will-change: background;
+
+
+            background:
+                radial-gradient(111% 111% at var(--x1) var(--y1), var(--color1) 0%, var(--color2) 100%),
+                linear-gradient(var(--rotation), var(--color3) 0%, var(--color4) 100%);
+
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        #bg-gradient {
+            will-change: background;
+        }
+
+        /* SVG embebido en CSS */
+        .bg-gradient::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            /* No bloquea clics ni interacciones */
+            opacity: 0.2;
+            /* Ajusta la intensidad del noise */
+
+            /* Se aplica el filtro de ruido */
+            filter: url(#noiseFilter);
+
+            background-blend-mode: soft-light;
+        }
+
+        #noise {
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+    </style>
 
 </head>
-
-<style>
-    /* Estilos básicos para el elemento de carga */
-    #loader {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-    }
-    /* Tema claro */
-    #loader.light {
-        background-color: #f3f3f3;
-        color: #000;
-    }
-    /* Tema oscuro */
-    #loader.dark {
-        background-color: #000;
-        color: #fff;
-    }
-    #loader.hidden {
-        display: none;
-    }
-    /* Estilos de la página */
-    body {
-        visibility: hidden;
-    }
-    body.loaded {
-        visibility: visible;
-    }
-</style>
 
 
 
 <body class="dark:bg-black bg-[#f3f3f3] transition-colors duration-300 ">
+    <script src="{{ url_for('static', filename='assets/js/bg_anim.js') }}"></script>
     <div id="loader">Cargando...</div>
-    
-    <div id="content">
+
+    <div class="bg-gradient" id="bg-gradient"></div>
+
+    <div id="content" class="min-h-screen overflow-x-hidden ">
         {% include 'includes/nav.html' %}
 
 
         {% block content %}{% endblock content %}
-        
+
 
         {% include 'includes/footer.html' %}
     </div>
 
+    <svg width="0" height="0" id="noise">
+        <defs>
+            <filter id="noiseFilter">
+                <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="3" stitchTiles="stitch" />
+                <feBlend mode="soft-light" in="SourceGraphic" />
+            </filter>
+        </defs>
+    </svg>
 
- <script>
-        // JavaScript para ocultar el cargador cuando la página esté completamente cargada
-        window.addEventListener('load', function() {
+
+
+
+    <script>
+        // Ocultar el loader cuando la página se carga completamente
+        window.addEventListener('load', function () {
             document.getElementById('loader').classList.add('hidden');
             document.body.classList.add('loaded');
         });
     </script>
+
+    <!-- <script type="module">
+        // Función para asignar eventos a los enlaces
+        function attachLinkEvents() {
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', async (e) => {
+                    const href = link.getAttribute('href');
+                    // Sólo se aplicará a enlaces internos
+                    if (!href || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+                    e.preventDefault();
+                    
+                    const loader = document.getElementById('loader');
+                    loader.classList.remove('hidden');
+                    
+                    try {
+                        const response = await fetch(href);
+                        if (!response.ok) throw new Error('Error en la respuesta de la red');
+                        const html = await response.text()
+                        document.open();
+                        document.write(html);
+                        document.close();
+                        window.history.pushState({}, '', href);
+                        window.scrollTo(0, 0);
+
+                    } catch (error) {
+                        console.error('Error al cargar la página:', error);
+                    } finally {
+                        loader.classList.add('hidden');
+                    }
+                });
+            });
+        }
+
+        attachLinkEvents();
+
+        // Manejo de navegación con el botón atrás/adelante
+        window.addEventListener('popstate', async () => {
+            const loader = document.getElementById('loader');
+            loader.classList.remove('hidden');
+            const url = window.location.href;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Error en la respuesta de la red');
+                const html = await response.text();
+                document.open();
+                document.write(html);
+                document.close();
+                window.scrollTo(0, 0);
+                attachLinkEvents();
+            } catch (error) {
+                console.error('Error al cargar la página:', error);
+            } finally {
+                loader.classList.add('hidden');
+            }
+        });
+    </script> -->
 </body>
+
 </html>
 <script src="{{ url_for('static', filename='assets/js/dark_mode.js') }}"></script>
 <script src="{{ url_for('static', filename='assets/js/main.js') }}" type="module"></script>
