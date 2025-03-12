@@ -1,7 +1,13 @@
-const shinyElement = document.querySelector(".shiny");
-// const shinyElement = null;
+let shinyElement = document.querySelector(".shiny");
+// shinyElement = null;
+
 
 shinyElement.addEventListener("mouseenter", () => {
+    // set variable --transition-speed to 0.1s
+    if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+        shinyElement.style.setProperty("--transition-speed", "0.1s");
+    }
+
     shinyElement.classList.remove("mouse-leave");
 });
 

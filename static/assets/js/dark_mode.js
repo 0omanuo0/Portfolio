@@ -23,11 +23,21 @@ function checkDarkMode() {
         document.documentElement.classList.remove('dark');
         is_dark = false;
     }
+    
+    // check darkmode
+    colors = is_dark ? colorPaletteBlack : colorPaletteWhite;
+    
 }
 checkDarkMode();
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', checkDarkMode);
 
 function toggleDarkMode() {
+    
+    if(window.matchMedia('(max-width: 768px)').matches) {
+        
+        requestAnimationFrame((t) => animateBackground(t));
+    }
+
     if (is_dark) {
         document.documentElement.classList.remove('dark');
         is_dark = false;
@@ -37,6 +47,9 @@ function toggleDarkMode() {
         is_dark = true;
         localStorage.setItem('dark-mode', 'true');
     }
+    
+    // check darkmode
+    colors = is_dark ? colorPaletteBlack : colorPaletteWhite;
 }
 
 switchButton2.addEventListener("click", toggleDarkMode);
