@@ -2,7 +2,7 @@
 {% block title %} About me {% endblock %}
 
 {% block content %}
-<main style="font-family: Montserrat" class="pb-40 text-gray-700 min-h-screen">
+<main style="font-family: Montserrat" class="pb-40 shiny text-gray-700 min-h-screen">
 
     <section 
         style="--bg: url({{ url_for('static', filename='images/main.webp') }});" 
@@ -13,7 +13,7 @@
         </div>
         <article>
             <div class="aboutme-title-cover">
-                <h1 class="">Sobre mí</h1>
+                <h1 class="" key="title">Sobre mí</h1>
                 <p class=" text-lg">
                     Soy un estudiante de ingeniería electrónica y automática en la Universidad Miguel Hernández de
                     Elche,
@@ -22,7 +22,7 @@
                     inteligencia artificial y la automatización.
                 </p>
                 <button class="button-cv md:mx-28 mx-10 mt-10">
-                    <a href="/curriculum" class="uppercase text-sm">
+                    <a href="/curriculum" class="uppercase text-sm" key="title">
                         curriculum
                     </a>
                 </button>
@@ -39,7 +39,7 @@
 
     <section class="section-main-content ">
         <article class="article-card article-card-more mt-20" id="article-1">
-            <h1 class="ml-12 title-article ">Formacion universitaria</h1>
+            <h1 key="title" class="ml-12 title-article ">Formacion universitaria</h1>
             <p>
                 Durante mi tiempo en la Universidad Miguel Hernández de Elche, he adquirido una sólida base en
                 ingeniería electrónica y automática. Mis estudios me han permitido desarrollar habilidades en lenguajes
@@ -73,7 +73,7 @@
             Más información
         </button>
         <article class="article-card article-card-more mt-20" id="article-2">
-            <h1 class="ml-12 title-article">Autónomo</h1>
+            <h1 key="title" class="ml-12 title-article">Autónomo</h1>
             <p>
                 En mi tiempo libre, he trabajado en diversos proyectos que han ampliado mis habilidades técnicas y mi
                 comprensión de sistemas complejos. Entre estos proyectos, destaca el desarrollo de un framework de
@@ -112,7 +112,7 @@
             Más información
         </button>
         <article class="article-card mt-20" id="article-3">
-            <h1 class="ml-12 title-article">Pasatiempos</h1>
+            <h1 key="title" class="ml-12 title-article">Pasatiempos</h1>
             <p>
                 Fuera del ámbito académico y profesional, disfruto de la fotografía paisajística y de ir a la montaña.
                 El cine, la música y la literatura también forman parte de mis pasiones, especialmente las novelas que
