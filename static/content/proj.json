@@ -81,7 +81,7 @@
             "url": ["https://github.com/0omanuo0/BarcodeGenerator", "0omanuo0/BarcodeGenerator"]
         },
         {
-            "Title" : "Aplicación para Mostrar Servicios del Homelab",
+            "Title" : "Visor de Servicios del Homelab",
             "tecnologies" : ["electron", "Python", "javascript"],
             "Description" : "<strong>Proyecto de Un Día</strong>\nApp Electron con backend Flask para mostrar servicios, optimizada para Raspberry Pi 3.5'",
             "Content" : "Aplicación",
