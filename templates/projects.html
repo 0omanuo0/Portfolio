@@ -3,11 +3,11 @@
 
 {% block content %}
 
-<main style="font-family: Montserrat" class="space-y-8 pb-40 pt-32 ">
-    <section class=" px-10 ">
-        <ul class="projects-list">
-            {% for x in projects %}
-                {% with proj=x %}
+<main style="font-family: Montserrat" class="space-y-8 pb-16 pt-28 ">
+    <section class=" px-40 ">
+        <ul class="projects-list projects-parent">
+            {% for x in projects%}
+                {% with proj=x, index=loop.index %}
                     {% include "blocks/project-template.html" %}
                 {% endwith %}
             {% endfor %}

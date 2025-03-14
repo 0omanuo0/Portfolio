@@ -259,31 +259,64 @@
 
     /* ================ PROJECTS ================ */
     .projects-list {
-        @apply md:mx-auto md:container list-none flex flex-col justify-center items-center md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:grid gap-10;
+        @apply md:mx-auto md:container list-none grid gap-5;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Se adapta al tamaño */
     }
+
+
+    .projects-list > li:first-child {
+        @apply col-span-2 row-span-2; /* Ocupa más espacio */
+    }
+
+    .projects-list > li:nth-child(9n) {
+        @apply col-span-2 row-span-2; /* Ocupa más espacio */
+    }
+
+    .projects-list > li:nth-child(8n+5) {
+        @apply col-span-2 row-span-1;
+    }
+
+    .projects-list > li:nth-child(8n+5)>div {
+        @apply aspect-[128/47];
+    }
+
+    .projects-list > li:nth-child(9n) h1, .projects-list > li:nth-child(1) h1 {
+        @apply text-3xl;
+    }
+
+
 
     .project-card {
-        @apply relative aspect-square max-w-96 rounded-2xl overflow-hidden text-balance;
+        @apply relative aspect-[4/3]  rounded-xl overflow-hidden text-balance;
+        --scale: 1;
+        --bottom-tech: -100%;
+        transition: transform 0.5s;
     }
 
+    .project-card:hover{
+        --scale: 1.1;
+        --bottom-tech: 0;
+    }
+    
+
     .project-card>img {
-        @apply absolute top-0 left-0 h-full w-full object-cover blur-[1px];
+        @apply -z-[1] absolute top-0 left-0 h-full w-full object-cover blur-[1px];
+        transform: scale(var(--scale));
+        transition: transform 0.5s;
     }
 
     .project-card>div {
-        @apply bg-black/50 dark:bg-black/60 absolute top-0 tracking-wide left-0 h-full w-full flex flex-col justify-center items-center px-4;
+        @apply absolute top-0 tracking-wide left-0 h-full w-full flex flex-col justify-end;
+
     }
 
-    .project-card>div h1 {
-        @apply text-xl md:text-3xl font-bold mb-2 text-white absolute top-0 left-0 w-full py-6 md:my-6 text-center;
-    }
 
-    .project-card>div p {
-        @apply ml-14 text-base md:text-lg text-balance tracking-wide text-gray-300;
-    }
+
 
     .project-tech {
-        @apply absolute left-0 bottom-0 px-4 py-4 space-y-2;
+        @apply absolute right-0 px-4 py-4 space-y-2;
+        bottom: var(--bottom-tech);
+        transition: bottom 0.5s;
     }
 
     .project-tech>li {

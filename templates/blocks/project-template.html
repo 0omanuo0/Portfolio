@@ -1,50 +1,58 @@
 
 <li id="{{ proj.Title }}" class=" w-full">
-    <div class="project-card">
-            <img 
-                src={{ "static/" + proj.image }} 
-                class="" 
-                alt="{{ proj.Title + proj.Description }}"
-                title="{{ proj.Title }}"
-            >
-        <div>
-            <h1> {{ proj.Title }} </h1>
-                
-            <p> {{ proj.Description }} </p>
-            <ul class="project-tech">
-                {% for tech in proj.tecnologies %}
-                    {% if tech in ["tensorflow"] %}
-                        <li class="px-2 py-1">
-                            <i class="devicon-{{ tech }}-original plain text-neutral-700 text-xl"></i>
-                        </li>
-                    {% elif tech in ["autocad"] %}
-                        <li class=" px-2 py-2 ">
-                            <img src="{{ url_for('static', filename='images/icons8-autocad-48.svg') }}" alt="autocad" class="h-[1.25rem] saturate-0">
-                        </li>
-                    {% else %}
-                        <li class=" px-2 py-1 ">
-                            <i class="devicon-{{ tech | lower }}-plain plain text-neutral-700 text-xl"></i>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-
-            {% if proj.url != 0 %}
-                <div class="py-6 w-full px-12">
-                    {% if proj.Content != "" %}
-                        <p
-                            class="text-center md:text-left text-white bg-neutral-700 bg-opacity-30 backdrop-blur-sm rounded-lg p-2 px-4 w-fit"
-                        >
-                            {{ proj.Content }}
-                        </p>
-                    {% endif %}
-                    <button 
-                        class="button-projects  float-right absolute right-8 bottom-8 "
+    <div class="project-card shadow-lg shadow-black/50">
+       
+        {% if proj.image == "" %}
+        <div class="bg-[#2d2d2d]">
+        {% else %}
+        <img 
+            src={{ "static/" + proj.image }} 
+            class="" 
+            alt="{{ proj.Title + proj.Description }}"
+            title="{{ proj.Title }}"
+        >
+        <div style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.90) 30%, rgba(0, 0, 0, 0.10) 100%);">
+        {% endif %}
+            <div class="pl-8 flex flex-col gap-1 pb-4">
+                <h1 class="text-white w-fit h-auto text-2xl font-semibold tracking-wide"> {{ proj.Title }} </h1>
+                {% if proj.Content != "" %}
+                    <p
+                        class="text-neutral-300"
                     >
-                        <a href="{{ proj.url[0] }}" class="">{{proj.url[1] }}</a>
-                    </button>
-                </div>
-            {% endif %}
+                        {{ proj.Content }}
+                    </p>    
+                {% endif %}
+                {% if proj.url != 0 %}
+                    <a href="{{ proj.url[0] }}" class=" text-blue-400 text-sm">{{proj.url[1] }}</a>
+                {% endif %}
+            </div>
+            <div class=" w-full bg-neutral-800 text-white min-h-24 px-6 py-4 text-sm">
+                <p> {{ proj.Description | replace("\n", "<br>")|safe }} </p>
+            </div>
         </div>
+
+        
+
+        <ul class="project-tech">
+            {% for tech in proj.tecnologies %}
+                {% if tech in ["tensorflow", "electron"] %}
+                    <li class="px-2 py-1">
+                        <i class="devicon-{{ tech }}-original plain text-neutral-700 text-md"></i>
+                    </li>
+                {% elif tech in ["autocad"] %}
+                    <li class=" px-2 py-2 ">
+                        <img src="{{ url_for('static', filename='images/icons8-autocad-48.svg') }}" 
+                        alt="autocad" 
+                        class="h-[1rem] saturate-0">
+                    </li>
+                {% else %}
+                    <li class=" px-2 py-1 text-md ">
+                        <i class="devicon-{{ tech | lower }}-plain plain text-neutral-700 text-md"></i>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+
     </div>
 </li>
