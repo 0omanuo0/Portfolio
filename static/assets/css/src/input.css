@@ -288,6 +288,7 @@
         @apply md:mx-auto md:container list-none flex flex-col lg:grid gap-5;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         /* Se adapta al tamaño */
+        max-width: 1200px;
     }
 
     @media (min-width: 1024px) {
