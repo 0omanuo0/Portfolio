@@ -1,7 +1,5 @@
 {
     "Projects" : [
-        
-        
         {
             "Title" : "Backend framework",
             "tecnologies" : ["Cplusplus", "azuresqldatabase"],
@@ -63,7 +61,7 @@
             "tecnologies" : ["Cplusplus", "arduino"],
             "Description" : "Projecto del <strong>IEEE</strong> de un globo estratosferico",
             "Content" : "Proyecto IEEE",
-            "image" : "images/strato.jpg",
+            "image" : "images/strato.webp",
             "url" : ["https://github.com/0omanuo0/projecto-globo", "0omanuo0/projecto-globo"]
         },
         {
@@ -71,7 +69,7 @@
             "tecnologies": ["html5", "javascript"],
             "Description": "Biblioteca ligera de Virtual DOM en JavaScript para crear y actualizar el DOM de forma eficiente imitando react.",
             "Content": "Librería",
-            "image": "images/Vdom.png",
+            "image": "images/Vdom.webp",
             "url": ["https://github.com/0omanuo0/vdom", "0omanuo0/vdom"]
         },
         {
@@ -79,7 +77,7 @@
             "tecnologies": ["Python", "Flask", "html5", "css3", "javascript"],
             "Description": "<strong>Proyecto de Un Día</strong>\nAplicación web sencilla para generar y descargar PDFs con códigos de barras personalizados.",
             "Content": "WebApp",
-            "image": "images/barcode2.png",
+            "image": "images/barcode2.webp",
             "url": ["https://github.com/0omanuo0/BarcodeGenerator", "0omanuo0/BarcodeGenerator"]
         },
         {
