@@ -65,8 +65,8 @@
             <div class="projects-carroussel">
                 <button id="left" onclick="carr(-1)" >&lt;</button>
                 <div id="panel_carrousel" >
-                    {% for card in range(projects|length) %}
-                        {% with proj=projects[card], id1=card %}
+                    {% for proj in projects if proj.image != "" %}
+                        {% with id1=loop.index0 %}
                             {% include "blocks/project-carrousel.html" %}
                         {% endwith %}
                     {% endfor %}
@@ -75,7 +75,7 @@
             </div>
         </section>
 
-        <section class="section-main-content first:flex-col w-5/6 2xl:w-3/4 text-balance">
+        <section class="section-main-content first:flex-col w-5/6 2xl:w-3/4 text-balance mt-20">
             <div class="experience-title">
                 <h1 key="title">Mi experiencia </h1>
                 <p  key="title">
@@ -83,32 +83,40 @@
                 </p>
             </div>
             <ul class="experience-list">
-                <li >
+                <li>
                     <h2 >Electrofret</h2>
-                    <p >Reparacion e instalacion de equipos frío industrial</p>
-                    <div >Mayo 2018 - Oct 2018</div>
+                    <div>
+                        <i class="bi bi-calendar-range"></i>
+                        Mayo 2018 - Oct 2018</div>
+                    <p style="margin-top: 1rem;">Reparacion e instalacion de equipos frío industrial</p>
                 </li>
-                <li >
+                <li>
                     <h2 class=" w-max">CAD en UMH</h2>
-                    <p >Web developer & C# autocad Objectarx engineer</p>
-                    <div >Sept 2022 - Ene 2023</div>
+                    <div>
+                        <i class="bi bi-calendar-range"></i>
+                        Sept 2022 - Ene 2023</div>
+                    <p style="margin-top: 1rem;">Web developer & C# autocad Objectarx engineer</p>
                 </li>
-                <li >
+                <li>
                     <h2 >Investigacion</h2>
-                    <p >Investigacion sobre mejoras en la ITV en relacion con el protocolo OBD</p>
-                    <div >Jun 2023 - Ene 2024</div>
+                    <div>
+                        <i class="bi bi-calendar-range"></i>
+                        Jun 2023 - Ene 2024</div>
+                    <p style="margin-top: 1rem;">Investigacion sobre mejoras en la ITV en relacion con el protocolo OBD</p>
                 </li>
-                <li >
+                <li>
                     <h2 >Investigacion</h2>
-                    <p >Investigacion y desarroyo de un prototipo de escaner para pneumaticos</p>
-                    <div >Abr 2024 - actual</div>
+                    <div>
+                        <i class="bi bi-calendar-range"></i>
+                        Abr 2024 - actual</div>
+                    <p style="margin-top: 1rem;">Investigacion y desarroyo de un prototipo de escaner para pneumaticos</p>
                 </li>
             </ul>
         </section>
 
         
 
-        <section class="form-mail">
+        <section class="form-mail mt-20">
             <form class=" p-10" action="{{ url_for('submit') }}" method="post">
                 <h1 class="dark:text-white leading-10 py-3 text-3xl">Quieres contactarme? </h1>
                 <p class="dark:text-gray-300 text-gray-600 ml-8 italic">Mándame un correo! ♥</p>
@@ -135,7 +143,7 @@
     </main>
 
     <script type="text/javascript">
-        var cards = parseInt("{{ (projects|length)|safe }}");
+        var cards = parseInt("{{ (projects|selectattr('image', 'ne', '')|list|length)|safe }}");
     </script>
     <script src="{{ url_for('static', filename='assets/js/carr.js') }}"></script>
 {% endblock content %}

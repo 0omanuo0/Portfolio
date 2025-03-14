@@ -6,7 +6,7 @@
 
             <div id={{ 'p'+(id1+1)|string }} class="z-0 items-center text-center space-y-4 py-8">
                 <h2 class=" h2-xl uppercase dark:text-white">{{ proj.Title }}</h2>
-                <p class=" dark:text-gray-300 text-gray-500">{{ proj.Description }}</p>
+                <p class=" dark:text-gray-300 text-gray-500">{{ proj.Description | replace("\n", "<br>")|safe }}</p>
             </div>
         </a>
     {% else %}
@@ -16,7 +16,7 @@
 
             <div id={{ 'p'+(id1+1)|string }} class="hidden z-0 items-center text-center space-y-4 py-8">
                 <h2 class=" h2-xl uppercase dark:text-white">{{ proj.Title }}</h2>
-                <p class=" dark:text-gray-300 text-gray-500">{{ proj.Description }}</p>
+                <p class=" dark:text-gray-300 text-gray-500">{{ proj.Description | replace("\n", "<br>")|safe }}</p>
             </div>
         </a>
     {% endif %}
