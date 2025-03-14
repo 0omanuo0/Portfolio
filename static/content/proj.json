@@ -6,9 +6,9 @@
             "Title" : "Backend framework",
             "tecnologies" : ["Cplusplus", "azuresqldatabase"],
             "Description" : "Backend escrito en C++ sin librerias como proyecto para aprender, soporta jinja, https, bases de datos...",
-            "Content" : "",
+            "Content" : "C++ lib",
             "image" : "images/framework.webp",
-            "url" : ["https://github.com/0omanuo0/FramworkCpp", "Ir a github"]
+            "url" : ["https://github.com/0omanuo0/FramworkCpp", "0omanuo0/FramworkCpp"]
         },
         {
             "Title" : "Corrector CAD",
@@ -16,55 +16,79 @@
             "Description" : "Trabajo en el departamento de CAD",
             "Content" : "No es publico",
             "image" : "images/cad.webp",
-            "url" : ["https://corrector-cad.umh.es", "Corrector UMH"]
-        },
-        {
-            "Title": "Minecraft-console",
-            "tecnologies": ["Python", "nextjs", "typescript", "tailwindcss", "react"],
-            "Description": "Herramienta para gestionar servidores de Minecraft desde consola.",
-            "Content": "",
-            "image": "images/proj5.webp",
-            "url": ["https://github.com/0omanuo0/Minecraft-console", "Ir a GitHub"]
-        },        
-        {
-            "Title": "Ulises Blanco",
-            "tecnologies": ["nextjs", "typescript", "react", "postgresql"],
-            "Description": "Página web dedicada al pintor Ulises Blanco, destacando su legado artístico.",
-            "Content": "",
-            "image": "images/UlisesBlanco.webp",
-            "url": ["https://ulisesblanco.com", "Ir a la web"]
+            "url" : ["https://corrector-cad.umh.es", "correctorcad.umh.es"]
         },
         {
             "Title": "ScannerTire",
             "tecnologies": ["Python", "opencv", "tensorflow"],
             "Description": "Escáner de neumáticos para vehículos, automatizando inspección y mantenimiento.",
-            "Content": "",
+            "Content": "Research",
             "image": "images/proj4.webp",
-            "url": ["https://github.com/0omanuo0/ScannerTire", "Ir a GitHub"]
-        },    
+            "url": ["https://github.com/0omanuo0/ScannerTire", "0omanuo0/ScannerTire"]
+        },  
         {
-            "Title" : "Led Control",
-            "tecnologies":["Cplusplus", "arduino"],
-            "Description" : "Sistema para controlar una tira led con un ESP32",
-            "Content" : "",
-            "image" : "images/proj2.webp",
-            "url" : ["https://github.com/0omanuo0/led-control", "Ir a github"]
+            "Title": "Minecraft-console",
+            "tecnologies": ["Python", "nextjs", "typescript", "tailwindcss", "react"],
+            "Description": "Herramienta para gestionar servidores de Minecraft desde consola.",
+            "Content": "WebApp",
+            "image": "images/proj5.webp",
+            "url": ["https://github.com/0omanuo0/Minecraft-console", "0omanuo0/Minecraft-console"]
+        },  
+        {
+            "Title": "MyExpr",
+            "tecnologies": ["Cplusplus"],
+            "Description": "Evaluador de expresiones matemáticas y de cadenas con funciones integradas y personalizadas, usando Shunting-yard y soportando números, cadenas y JSON.",
+            "Content": "Librería",
+            "image": "",
+            "url": ["https://github.com/0omanuo0/my_expr", "0omanuo0/my_expr"]
+        },      
+        {
+            "Title": "Ulises Blanco",
+            "tecnologies": ["nextjs", "typescript", "react", "postgresql"],
+            "Description": "Página web dedicada al pintor Ulises Blanco, destacando su legado artístico.",
+            "Content": "Página web",
+            "image": "images/UlisesBlanco.webp",
+            "url": ["https://ulisesblanco.com", "ulisesblanco.com"]
         },
         {
             "Title" : "Portfolio",
             "tecnologies" : ["Python", "flask", "tailwindcss"],
             "Description" : "Este portfolio, diseñado con flask y tailwind",
-            "Content" : "",
+            "Content" : "Web",
             "image" : "images/proj1.webp",
-            "url" : ["https://github.com/0omanuo0/Portfolio", "Ir a github"]
+            "url" : ["https://github.com/0omanuo0/Portfolio", "0omanuo0/Portfolio"]
         },
         {
             "Title" : "Projecto globo",
             "tecnologies" : ["Cplusplus", "arduino"],
-            "Description" : "Projecto del IEEE de un globo estratosferico",
-            "Content" : "",
+            "Description" : "Projecto del <strong>IEEE</strong> de un globo estratosferico",
+            "Content" : "Proyecto IEEE",
             "image" : "images/strato.jpg",
-            "url" : ["https://github.com/0omanuo0/projecto-globo", "Ir a github"]
+            "url" : ["https://github.com/0omanuo0/projecto-globo", "0omanuo0/projecto-globo"]
+        },
+        {
+            "Title": "Virtual DOM Library",
+            "tecnologies": ["html5", "javascript"],
+            "Description": "Biblioteca ligera de Virtual DOM en JavaScript para crear y actualizar el DOM de forma eficiente imitando react.",
+            "Content": "Librería",
+            "image": "images/Vdom.png",
+            "url": ["https://github.com/0omanuo0/vdom", "0omanuo0/vdom"]
+        },
+        {
+            "Title": "Generador de codigos de barras",
+            "tecnologies": ["Python", "Flask", "html5", "css3", "javascript"],
+            "Description": "<strong>Proyecto de Un Día</strong>\nAplicación web sencilla para generar y descargar PDFs con códigos de barras personalizados.",
+            "Content": "WebApp",
+            "image": "images/barcode2.png",
+            "url": ["https://github.com/0omanuo0/BarcodeGenerator", "0omanuo0/BarcodeGenerator"]
+        },
+        {
+            "Title" : "Aplicación para Mostrar Servicios del Homelab",
+            "tecnologies" : ["electron", "Python", "javascript"],
+            "Description" : "<strong>Proyecto de Un Día</strong>\nApp Electron con backend Flask para mostrar servicios, optimizada para Raspberry Pi 3.5'",
+            "Content" : "Aplicación",
+            "image" : "",
+            "url" : ["https://github.com/0omanuo0/display-services", "0omanuo0/display-services"]
         }
     ]
 }
