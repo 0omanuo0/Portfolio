@@ -321,7 +321,7 @@
 
 
     .project-card {
-        @apply relative aspect-[4/3] rounded-xl overflow-hidden text-balance;
+        @apply relative aspect-square md:aspect-[4/3] rounded-xl overflow-hidden text-balance;
         --scale: 1;
         --bottom-tech: 0;
         transition: transform 0.5s;
