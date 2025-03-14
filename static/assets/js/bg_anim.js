@@ -97,6 +97,7 @@ let bg = document.querySelector('#bg-gradient');
 
 // Iniciar la animación con la paleta de colores al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
+    // return
     bg = document.querySelector('#bg-gradient');
     // select color palette (check if dark mode is enabled)
     colors = is_dark ? colorPaletteBlack : colorPaletteWhite;
@@ -121,6 +122,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (carr) {
         carr.addEventListener("transitionstart", () => { transitioning = true });
         carr.addEventListener("transitionend", () => { transitioning = false });
+    }
+
+    const cards = document.querySelectorAll(".project-card");
+    if (cards) {
+        cards.forEach(card => {
+            card.addEventListener("mouseenter", () => { transitioning = true });
+            card.addEventListener("mouseleave", () => { transitioning = false });
+        });
     }
 
     // get after of .shiny element and when transitionstart set updateInterval to 1000
