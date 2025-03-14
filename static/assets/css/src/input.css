@@ -49,13 +49,28 @@
         @apply w-full p-2 rounded border;
         @apply bg-white text-neutral-800 border-neutral-300;
         @apply dark:bg-neutral-700 dark:text-neutral-200 dark:border-neutral-700;
+        /* Placeholder styles */
+        @apply placeholder-neutral-500 dark:placeholder-neutral-400;
+
+        /* Transition effects */
         @apply transition duration-300 ease-in-out;
-        @apply focus:outline-none focus:ring-1;
-        @apply focus:border-neutral-500 focus:ring-neutral-600;
+
+        /* Focus styles */
+        @apply focus:border-neutral-600 focus:ring-neutral-600 focus:ring-1;
+        @apply focus:border-neutral-600 focus:ring-neutral-600;
         @apply dark:focus:border-neutral-600 dark:focus:bg-neutral-700/60 dark:focus:ring-neutral-600;
+        
+        
+        /* Hover styles */
         @apply hover:border-neutral-600;
         @apply dark:hover:bg-neutral-700/60;
-        @apply placeholder-neutral-500 dark:placeholder-neutral-400;
+    }
+
+    .input-text-1:focus{
+        outline-style: solid;
+        outline-color: rgb(82 82 82);
+        outline-width: 2px;
+        transition: all 0.3s;
     }
 
     .submit-button {
@@ -221,7 +236,7 @@
     }
 
     .experience-title {
-        @apply text-center md:text-left text-pretty pb-4 border-b-2 border-neutral-500 dark:border-neutral-500 mb-4;
+        @apply text-center md:text-left text-pretty pb-4 border-b-2 border-neutral-500 dark:border-neutral-300 mb-4;
     }
 
     .experience-title>h1 {
@@ -234,10 +249,12 @@
 
     .experience-list {
         @apply flex flex-col gap-10 md:grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-between xs:max-w-[50vw] md:max-w-fit;
+        /* calculate the height, the content + 30px */
+        
     }
 
     .experience-list>li {
-        @apply items-center space-y-4;
+        @apply items-center space-y-1;
     }
 
     .experience-list>li>h2 {
@@ -250,6 +267,10 @@
 
     .experience-list>li>div {
         @apply text-xs dark:text-gray-100 text-gray-800;
+    }
+
+    .experience-list>li>div>i {
+        @apply text-sm mr-1;
     }
 
 
@@ -307,7 +328,7 @@
 
     .project-card>div {
         @apply absolute top-0 tracking-wide left-0 h-full w-full flex flex-col justify-end;
-
+        
     }
 
 
