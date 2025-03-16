@@ -1,7 +1,9 @@
+import { colorPaletteBlack, colorPaletteWhite } from './bg_anim.js';
+
 const switchButton = document.getElementById("mode-switch");
 const switchButton2 = document.getElementById("mode-switch2");
 
-let is_dark = false;
+
 
 function checkDarkMode() {
     // check localstorage
@@ -34,7 +36,6 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', che
 function toggleDarkMode() {
     
     if(window.matchMedia('(max-width: 768px)').matches) {
-        
         requestAnimationFrame((t) => animateBackground(t));
     }
 

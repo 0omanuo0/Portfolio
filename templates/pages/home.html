@@ -1,0 +1,145 @@
+
+
+{% block content %}
+
+<main style="font-family: Montserrat" class=" block md:none pb-40 text-black">
+    <section class="main-cover" style="--bg: url({{ url_for('static', filename='images/main.webp') }});">
+        <div class="">
+            <div class="title-cover">
+                <h1 key="title">Manuel Serrano</h1>
+                <h3 key="title">Probably an engineer and a developer :D</h3>
+                <!-- align right -->
+                <ul class="title flex justify-center lg:justify-end mt-2 space-x-3 items-center">
+                    <li>
+                        <button class="minimal-button">
+                            <a href="https://www.instagram.com/manuser365/">
+                                <i class="bi bi-instagram inline-block button-links"></i>
+                            </a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="minimal-button">
+                            <a href="https://github.com/0omanuo0">
+                                <i class="bi bi-github inline-block button-links"></i>
+                            </a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="minimal-button">
+                            <a href="https://www.linkedin.com/in/manu-serrano-437084249/">
+                                <i class="bi bi-linkedin inline-block button-links"></i>
+                            </a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="minimal-button">
+                            <a href="/curriculum">
+                                <i class="bi bi-file-earmark-person text-2xl inline-block button-links"></i>
+                            </a>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-img  ">
+                <img onclick="window.location.href='/aboutme'" width="1080" height="1080"
+                    src="{{ url_for('static', filename='images/Group 1.png') }}" alt="profile image">
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="section-main-content w-full md:w-4/5" id="projects">
+        <h1 key="title">MIS PROJECTOS </h1>
+        <p>Desliza para ver mas!</p>
+        <div class="projects-carroussel">
+            <button id="left" onclick="carr(-1)">&lt;</button>
+            <div id="panel_carrousel">
+                {% for proj in projects if proj.image != "" %}
+                {% with id1=loop.index0 %}
+                {% include "blocks/project-carrousel.html" %}
+                {% endwith %}
+                {% endfor %}
+            </div>
+            <button id="right" onclick="carr(1)">&gt;</button>
+        </div>
+    </section>
+
+    <section class="section-main-content first:flex-col w-5/6 2xl:w-3/4 text-balance mt-20">
+        <div class="experience-title">
+            <h1 key="title">Mi experiencia </h1>
+            <p key="title">
+                Aunque no sea mucha, aquí iré poniendo mi experiencia laboral.
+            </p>
+        </div>
+        <ul class="experience-list">
+            <li>
+                <h2>Electrofret</h2>
+                <div>
+                    <i class="bi bi-calendar-range"></i>
+                    Mayo 2018 - Oct 2018
+                </div>
+                <p style="margin-top: 1rem;">Reparacion e instalacion de equipos frío industrial</p>
+            </li>
+            <li>
+                <h2 class=" w-max">CAD en UMH</h2>
+                <div>
+                    <i class="bi bi-calendar-range"></i>
+                    Sept 2022 - Ene 2023
+                </div>
+                <p style="margin-top: 1rem;">Web developer & C# autocad Objectarx engineer</p>
+            </li>
+            <li>
+                <h2>Investigacion</h2>
+                <div>
+                    <i class="bi bi-calendar-range"></i>
+                    Jun 2023 - Ene 2024
+                </div>
+                <p style="margin-top: 1rem;">Investigacion sobre mejoras en la ITV en relacion con el protocolo OBD</p>
+            </li>
+            <li>
+                <h2>Investigacion</h2>
+                <div>
+                    <i class="bi bi-calendar-range"></i>
+                    Abr 2024 - actual
+                </div>
+                <p style="margin-top: 1rem;">Investigacion y desarroyo de un prototipo de escaner para pneumaticos</p>
+            </li>
+        </ul>
+    </section>
+
+
+
+    <section class="form-mail mt-20">
+        <form class=" p-10" action="{{ url_for('submit') }}" method="post">
+            <h1 class="dark:text-white leading-10 py-3 text-3xl">Quieres contactarme? </h1>
+            <p class="dark:text-gray-300 text-gray-600 ml-8 italic">Mándame un correo! ♥</p>
+            <div class=" pt-3 md:flex md:grid-cols2 md:space-x-8 ">
+                <div class="mt-10 md:mt-1">
+                    <h2 class="h2-wide">NOMBRE</h2>
+                    <input type="text" class="input-text-1 w-full md:w-44" maxlength="256" id="name" name="name"
+                        data-name="Name" placeholder="Nombre" id="Name">
+                </div>
+                <div class="mt-10 md:mt-1 w-full">
+                    <h2 class="h2-wide">EMAIL</h2>
+                    <input type="text" class="input-text-1 " maxlength="256" id="email" name="email" data-name="Email"
+                        placeholder="Email">
+                </div>
+            </div>
+            <div class="mt-6">
+                <h2 class="h2-wide">CONTENIDO DEL CORREO</h2>
+                <textarea id="Message" class="input-text-1 resize-none h-[200px]" id="message" name="message"
+                    placeholder="Añade tu mensaje" maxlength="5000" data-name="Message"></textarea>
+                <input type="submit" value="ENVIAR" class="submit-button ml-auto">
+            </div>
+        </form>
+    </section>
+</main>
+
+<script type="text/javascript">
+    var cards = parseInt("{{ (projects|selectattr('image', 'ne', '')|list|length)|safe }}");
+</script>
+<script src="{{ url_for('static', filename='assets/js/carr.js') }}"></script>
+
+{% endblock %}

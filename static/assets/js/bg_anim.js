@@ -78,7 +78,7 @@ function animateBackground(timestamp) {
 }
 
 // Paleta de colores modo oscuro (tonos pastel)
-const colorPaletteBlack = [
+export const colorPaletteBlack = [
     "#A93300",
     "#005570",
     "#00D5C8",
@@ -88,15 +88,14 @@ const colorPaletteBlack = [
 
 
 // #ffffff, #effffa, #e5ecf4, #c3bef7
-const colorPaletteWhite = ["#c3bef7", "#ffffff", "#effffa", "#e5ecf4"];
+export const colorPaletteWhite = ["#c3bef7", "#ffffff", "#effffa", "#e5ecf4"];
 
-let colors = null;
+
 
 
 let bg = document.querySelector('#bg-gradient');
 
-// Iniciar la animación con la paleta de colores al cargar la página
-document.addEventListener("DOMContentLoaded", () => {
+export function init(){
     // return
     bg = document.querySelector('#bg-gradient');
     // select color palette (check if dark mode is enabled)
@@ -112,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 400);
     });
 
-    const throttle = 200;
+    let throttle = 200;
 
     // if is firefox needs throttling to dont break the animation
     let is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
@@ -133,8 +132,40 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // get after of .shiny element and when transitionstart set updateInterval to 1000
-    let shinyElement = document.querySelector(".shiny");
-    if (!shinyElement) return;
-    shinyElement.addEventListener("transitionstart", () => { updateInterval = throttle });
-    shinyElement.addEventListener("transitionend", () => { updateInterval = defaultUpdateInterval });
+    // let shinyElement = document.querySelector(".shiny");
+    // if (!shinyElement) return;
+    // shinyElement.addEventListener("transitionstart", () => { updateInterval = throttle });
+    // shinyElement.addEventListener("transitionend", () => { updateInterval = defaultUpdateInterval });
+}
+
+// remove event listeners
+export function rm_init(){
+    window.removeEventListener("resize", () => {
+        transitioning = true;
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            transitioning = false;
+        }, 400);
+    });
+
+    const carr = document.querySelector("#panel_carrousel");
+    if (carr) {
+        carr.removeEventListener("transitionstart", () => { transitioning = true });
+        carr.removeEventListener("transitionend", () => { transitioning = false });
+    }
+
+    const cards = document.querySelectorAll(".project-card");
+    if (cards) {
+        cards.forEach(card => {
+            card.removeEventListener("mouseenter", () => { transitioning = true });
+            card.removeEventListener("mouseleave", () => { transitioning = false });
+        });
+    }
+}
+
+
+// Iniciar la animación con la paleta de colores al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+    rm_init();
+    init();
 });

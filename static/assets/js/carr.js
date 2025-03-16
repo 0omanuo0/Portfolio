@@ -2,9 +2,6 @@ const left = document.getElementById("left");
 const right = document.getElementById("right");
 const panel = document.getElementById("panel_carrousel");
 
-var pos = 1;
-var touched = false;
-
 
 function carr(direction = 0) {
     if(carr == null) return;
@@ -91,5 +88,4 @@ if (panel) {
             panel.removeEventListener('touchmove', null);
         }
     });
-
 }
