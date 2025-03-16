@@ -208,6 +208,8 @@
     <script type="module">
         import { init, rm_init } from "{{ url_for('static', filename='assets/js/bg_anim.js') }}";
 
+        const nav = document.getElementById("base");
+
         async function render_page(page, target) {
             if(page.startsWith("/")){
                 page = page.slice(1);
@@ -235,6 +237,23 @@
                 newScript.text = script.text; // Copia el contenido del script
                 document.body.appendChild(newScript); // Agregarlo al documento para ejecutarlo
                 document.body.removeChild(newScript); // Eliminarlo después de ejecutarlo
+            }
+
+            // select the actual page in the nav
+            if(nav){
+                const links = nav.querySelectorAll('button');
+                links.forEach(link =>{
+                    link.classList.remove("minimal-button-a");
+                    link.classList.remove("minimal-button");
+                });
+                const actual = nav.querySelector("#" + page);
+                links.forEach(link =>{
+                    if(link == actual){
+                        link.classList.add("minimal-button-a");
+                    }else{
+                        link.classList.add("minimal-button");
+                    }
+                });
             }
 
             rm_init();
@@ -267,8 +286,6 @@
             render_page(document.location.pathname, content);
         };
         
-        // if 
-
 
         // initialize with the home page
         // render_page("home", content);
