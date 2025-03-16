@@ -264,9 +264,11 @@
         // preload the images of the projects 
 
         window.onpopstate = function (event) {
-            render_page(event.state.page, content);
+            render_page(document.location.pathname, content);
         };
         
+        // if 
+
 
         // initialize with the home page
         // render_page("home", content);
