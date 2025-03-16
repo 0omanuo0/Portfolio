@@ -496,7 +496,7 @@
     }
 
     .minimal-button {
-        @apply text-gray-800 dark:text-gray-400 tracking-widest hover:text-gray-800 hover:dark:text-gray-200;
+        @apply text-gray-600 dark:text-gray-400 tracking-widest hover:text-gray-800 hover:dark:text-gray-200;
     }
 
     .minimal-button-a {
