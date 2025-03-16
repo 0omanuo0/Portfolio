@@ -27,7 +27,7 @@ let updateInterval = defaultUpdateInterval; // Reducir frecuencia de actualizaci
 let transitioning = false;
 
 // Función para animar el fondo con parámetros de colores
-function animateBackground(timestamp) {
+export function animateBackground(timestamp) {
 
     if (timestamp - lastUpdate < updateInterval || transitioning) {
         requestAnimationFrame((t) => animateBackground(t));

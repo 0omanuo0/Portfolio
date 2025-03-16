@@ -1,4 +1,4 @@
-import { colorPaletteBlack, colorPaletteWhite } from './bg_anim.js';
+import { colorPaletteBlack, colorPaletteWhite, animateBackground } from './bg_anim.js';
 
 const switchButton = document.getElementById("mode-switch");
 const switchButton2 = document.getElementById("mode-switch2");
