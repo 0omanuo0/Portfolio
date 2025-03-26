@@ -44,7 +44,7 @@
     <link rel="preload" href="{{ url_for('static', filename='images/main.webp') }}" as="image">
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/dist/output.css') }}">
     <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/main.scss') }}"> -->
-    <title>Manu - {% block title %}{% endblock %} | Portfolio</title>
+    <title>{{ title }} | Portfolio</title>
 
     <style>
         /* Estilos básicos para el elemento de carga */
@@ -211,18 +211,21 @@
         const nav = document.getElementById("base");
 
         async function render_page(page, target) {
-            if(page.startsWith("/")){
-                page = page.slice(1);
-            }
 
-            if(page == ""){
+            // remove the first /
+            if(page.startsWith("/"))
+                page = page.slice(1);
+
+            // if is empty, set home
+            if(page == "")
                 page = "home";
-            }
+            
 
             const response = await fetch("page/" + page);
             const text = await response.text();
             target.innerHTML = text;
-            document.title = page + " | Portfolio";
+            // set the fisrt letter to uppercase
+            document.title = page.charAt(0).toUpperCase() + page.slice(1) + " | Portfolio";
 
             // change the url
             window.history.pushState({ page: page }, page, page);
@@ -230,14 +233,24 @@
             // scrolltop
             window.scrollTo(0, 0);
 
+            // IMPORTANT: Execute the scripts in the new page because innerHTML does not run them
             const scripts = target.getElementsByTagName("script");
-
-            for (let script of scripts) {
-                const newScript = document.createElement("script");
-                newScript.text = script.text; // Copia el contenido del script
-                document.body.appendChild(newScript); // Agregarlo al documento para ejecutarlo
-                document.body.removeChild(newScript); // Eliminarlo después de ejecutarlo
-            }
+            for (const oldScript of scripts) {
+                const newScript = document.createElement('script');
+            
+                // Copy all attributes from the original script
+                for (const attr of oldScript.attributes) {
+                    newScript.setAttribute(attr.name, attr.value);
+                }
+            
+                // Copy inline script content, if any
+                if (oldScript.textContent) {
+                    newScript.textContent = oldScript.textContent;
+                }
+            
+                // Append to the document to trigger execution
+                document.body.appendChild(newScript);
+            }            
 
             // select the actual page in the nav
             if(nav){
