@@ -29,7 +29,7 @@ mail = Mail(app)
 @app.route("/")
 def index():
     with open('static/content/proj.json') as f:
-        return render_template("layouts/base2.html", target="home", projects=json.load(f)["Projects"])
+        return render_template("layouts/base2.html", target="home", projects=json.load(f)["Projects"], title="Home")
 
 @app.route("/page/<page>")
 def get_page(page):
@@ -39,13 +39,13 @@ def get_page(page):
 @sm.include()
 @app.route("/aboutme")
 def aboutme():
-    return render_template("layouts/base2.html", target="aboutme")
+    return render_template("layouts/base2.html", target="aboutme", title="About me")
 
 @sm.include()
 @app.route("/projects")
 def projects():
     with open('static/content/proj.json') as f:
-        return render_template("layouts/base2.html", target="projects", projects=json.load(f)["Projects"])
+        return render_template("layouts/base2.html", target="projects", projects=json.load(f)["Projects"], title="Projects")
 
 @sm.include()
 @app.route("/home")
